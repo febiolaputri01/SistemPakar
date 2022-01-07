@@ -1,7 +1,10 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
 class Artikel_model extends CI_Model
 {
     private $_table = "tb_artikel";
+
 
     public function rules()
     {
@@ -11,7 +14,7 @@ class Artikel_model extends CI_Model
                 'label' => 'Judul',
                 'rules' => 'required'
             ],
-   
+
             [
                 'field' => 'isi',
                 'label' => 'Isi',
