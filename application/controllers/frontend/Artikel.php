@@ -20,7 +20,7 @@ class Artikel extends CI_Controller
 		$this->load->view('frontend/_partials/artikel', $data);
 		$this->load->view('frontend/_partials/footer');
 	}
-
+    
 	// public function article_read($id)
 	// {
 

@@ -18,21 +18,23 @@
                                         <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                     </div>
                                     <?= $this->session->flashdata('message');?>
-                                    <form action="<?= base_url('backend/auth')?>" method="post">
+                                    <form action="<?= base_url('admin')?>" method="post">
+                                         <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" style="display: none;">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                id="email" name="email"
-                                                placeholder="Enter Email Address...">
+                                                id="username" name="username"
+                                                placeholder="Masukkan Username">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="password" name="password"
-                                                placeholder="Password">
+                                                placeholder="Masukkan Password">
                                         </div>
                                         
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
+                                         <a href="javascript:window.history.go(-1);" class="btn btn-secondary btn-user btn-block">Kembali</a>
                                     
                                        
                                     </form>

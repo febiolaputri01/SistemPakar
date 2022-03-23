@@ -1,54 +1,28 @@
-<!-- ======= About Us Section ======= -->
-<section id="articles" class="contact">
-    <div class="container" data-aos="fade-up">
-    <br>
-    <br>
-<div class="section-title">
-<h2>Semua Artikel</h2>
-</div>
-    <div class="row">
-        <?php foreach($artikel as $artikel):?>
-        <div class="col-lg-4">
-            <div class="info card"><br>
-                <a href="<?=base_url('artikel/article_read/'.$artikel->id_artikel)?>">
-                    <img class="card-img-top" src="<?= base_url('/assets/template/img/articles/'.$artikel->gambar)?>">
-                </a>
-        <blockquote class="blockquote">
-            <h6></h6>
-            <h5><?=$artikel->judul?></h5>
-        </blockquote></a>
-    <figcaption class="blockquote-footer">
-    <?php
-            $beda = time()-$artikel->tanggal_input;
-            if($beda<(60)):
-                echo "Baru saja";
-            elseif($beda<(60*60)):
-                echo floor($beda/60)." menit yang lalu <br>";
-            elseif($beda<(60*60*24)):
-                echo floor($beda/(60*60))." jam yang lalu";
-            elseif($beda<(60*60*24*7)):
-                echo floor($beda/(60*60*24))." hari yang lalu";
-            elseif($beda<(60*60*24*30)):
-                echo floor($beda/(60*60*24*7))." minggu yang lalu";
-            elseif($beda<(60*60*24*30*12)):
-                echo floor($beda/(60*60*24*30))." bulan yang lalu";
-            else:
-                echo floor($beda/(60*60*24*365))." tahun yang lalu <br>";
-            endif;
-            ?>
-    </figcaption>
-            <div class="card-body">
-                <div class="row justify-content-end">
-                    <div class="col-7">
-                    <h6><a href="<?=base_url('artikel/article_read/'.$artikel->id_artikel)?>" class="card-link">Baca Selengkapnya</a></h6>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-            <?php endforeach?>
-        </div>
-    </div>
+ <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
 
-    </div>
-</section><!-- End About Us Section -->
+        <div class="section-title">
+          <h2>ARTIKEL</h2>
+          <p>Artikel berikut ini berisi tentang informasi terkait dengan Infeksi Saluran Pernafasan Akut, Sistem Pakar dan informasi informasi terkait dengan perkembangan Tekologi.</p>
+        </div>
+        <?php foreach ($artikel as $art) : ?>
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img src="<?= base_url('assets/template/img/artikel/' . $art['artikel_img']) ?>" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3><?= $art['artikel_judul'] ?></h3>
+            <p class="fst-italic">
+              <?= date('d, M Y, H:i', $art['artikel_create']) ?>.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i><?= $art ['artikel_body']?></li>
+            </ul>
+          
+          </div>
+        </div>
+        <?php endforeach; ?>
+
+      </div>
+    </section>
+    <!-- End About Us Section -->

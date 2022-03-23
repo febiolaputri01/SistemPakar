@@ -7,28 +7,33 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(assets/template/img/slide/slide-1.jpg)">
+        <div class="carousel-item active" style="background-image: url(assets/template/img/slide/slide1.png)">
           <div class="container">
             <h2>Mengapa harus  <span> Deteksi Dini?</span></h2>
-            <p>Deteksi dini penyakit Infeksi saluran pernafasan akut (ISPA ) dilakukan untuk mempermudah penemuan penyakit ISPA dengan mejawab pertanyaan terkait gejala yang di alami tanpa harus bertatap muka dengan dokter spesialis paru paru  dengan hasil mengetahui gejala awal penyakit ISPA secara otomatis dan akurat dengan identifikasi dan rekomendasi penanganan awal </p>
+            <p>Deteksi dini penyakit Infeksi Saluran Pernafasan Akut (ISPA ) dilakukan untuk mempermudah penemuan penyakit ISPA dengan menjawab pertanyaan terkait gejala yang di alami tanpa harus bertatap muka dengan dokter spesialis paru paru  dengan hasil mengetahui gejala awal penyakit ISPA secara otomatis dan akurat dengan identifikasi dan rekomendasi penanganan awal </p>
             <a href="#about" class="btn-get-started scrollto">Deteksi Sekarang</a>
           </div>
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url(assets/template/img/slide/slide-2.jpg)">
+        <div class="carousel-item" style="background-image: url(assets/template/img/slide/slide2.png)">
           <div class="container">
-            <h2>Bahaya Penyakit ISPA</h2>
-            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
+            <h2>Kapan harus ke Dokter?</h2>
+            <p>Bila dirimu atau anggota keluarga ada yang mengalami gejala-gejala yang merujuk pada penyakit ISPA, segeralah temui dokter untuk mendapatkan saran dan penanganan yang tepat.</p>
             <a href="#about" class="btn-get-started scrollto">Deteksi Sekarang</a>
           </div>
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url(assets/template/img/slide/slide-3.jpg)">
+        <div class="carousel-item" style="background-image: url(assets/template/img/slide/slide3.png)">
           <div class="container">
-            <h2> Tips Dari Dokter Specialis Paru Paru</h2>
-            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
+            <h2> Pencegahan penyakit ISPA</h2>
+            <p> Cucilah tangan secara teratur, apalagi setelah beraktivitas di tempat umum.
+                Menghindari menyentuh bagian wajah, terutama mulut, hidung, dan mata dengan tangan agar terhindar dari penyebaran virus dan bakteri.
+                Menghindari merokok.
+                Mengonsumsi makanan kaya serat dan vitamin untuk meningkatkan daya tahan tubuh.
+                Menutup mulut dan hidung dengan tisu atau tangan ketika bersin untuk mencegah penyebaran penyakit kepada orang lain.
+                Berolahraga secara teratur untuk membantu meningkatkan kekebalan tubuh.</p>
             <a href="#about" class="btn-get-started scrollto">Deteksi Sekarang</a>
           </div>
         </div>
