@@ -8,12 +8,12 @@
         <div class="row">
           <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
             <div class="icon-box mt-5 mt-lg-0">
-              <i class="bx bx-receipt"></i>
+             <i class="bi bi-info-square"></i>
               <h4>1. Memberikan Informasi akurat terkait dengan penyakit ISPA</h4>
               <p> Informasi yang disediakan pada sistem ini akurat dan terpercaya karena didapatkan dari sumber sumber yang dapat dipertanggungjawabkan</p>
             </div>
             <div class="icon-box mt-5">
-              <i class="bx bx-cube-alt"></i>
+              <i class="bi bi-receipt"></i>
               <h4>2. Memberikan rekomendasi penanganan dini penyakit ISPA</h4>
               <p>Hasil yang didapatkan setelah melakukan deteksi dini juga akan mendapatkan rekomendasi dari pakar sesuai dengan hasil deteksi dini dan gejala yang telah dialami</p>
             </div>

@@ -78,6 +78,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+
   <script src="<?= base_url('assets/template/')?>vendor/aos/aos.js"></script>
   <script src="<?= base_url('assets/template/')?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="<?= base_url('assets/template/')?>vendor/glightbox/js/glightbox.min.js"></script>
@@ -87,6 +88,15 @@
 
   <!-- Template Main JS File -->
   <script src="<?= base_url('assets/template/')?>js/main.js"></script>
+  <script src="<?= base_url() ?>assets_wizard/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+  <!--  Plugin for the Wizard -->
+  <script src="<?= base_url() ?>assets_wizard/js/demo.js" type="text/javascript"></script>
+  <script src="<?= base_url() ?>assets_wizard/js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+
+  <!--  More information about jquery.validate here: https://jqueryvalidation.org/   -->
+  <script src="<?= base_url() ?>assets_wizard/js/jquery.validate.min.js" type="text/javascript"></script>
+  
 
 <!-- tambahan --> 
 <script>

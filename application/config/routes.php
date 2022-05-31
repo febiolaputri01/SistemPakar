@@ -55,3 +55,57 @@ $route['translate_uri_dashes'] = FALSE;
 
 // admin
 $route['admin'] = 'backend/auth';
+//penyakit
+$route['penyakit'] = 'backend/penyakit';
+$route['add-penyakit'] ='backend/penyakit/create';
+$route['delete-penyakit/(:num)'] = function ($id_penyakit) {
+    return 'backend/penyakit/delete' . '/' . $id_penyakit;
+};
+$route['edit-penyakit/(:num)'] = function ($id_penyakit) {
+    return 'backend/penyakit/updatePenyakit' . '/' . $id_penyakit;
+};
+
+$route['gejala'] = 'backend/gejala';
+$route['add-gejala'] ='backend/gejala/create';
+$route['edit-gejala/(:num)'] = function ($id_gejala) {
+    return 'backend/gejala/update' . '/' . $id_gejala;
+};
+
+$route['cfpakar'] = 'backend/evidence';
+$route['add-cfpakar'] = 'backend/evidence/create';
+$route['edit-cf/(:num)'] = function ($evidence_id) {
+    return 'backend/evidence/update' . '/' . $evidence_id;
+};
+$route['delete-cf/(:num)'] = function ($evidence_id) {
+    return 'backend/evidence/delete' . '/' . $evidence_id;
+};
+
+$route['data-pertanyaan'] = 'backend/pertanyaan';
+$route['add-pertanyaan'] ='backend/pertanyaan/create';
+
+$route['delete-gejala/(:num)'] = function ($id_gejala) {
+    return 'backend/gejala/delete' . '/' . $id_gejala;
+};
+$route['truncate-gejala'] = 'backend/gejala/clear';
+// artikel 
+$route['data-artikel'] = 'backend/artikel';
+$route['add-artikel'] = 'backend/artikel/create';
+$route['view-artikel/(:any)'] = function ($artikel_slug) {
+    return 'backend/artikel/read' . '/' . $artikel_slug;
+};
+$route['edit-artikel/(:any)'] = function ($artikel_slug) {
+    return 'backend/artikel/update' . '/' . $artikel_slug;
+};
+$route['delete-artikel/(:num)'] = function ($artikel_id) {
+    return 'backend/artikel/delete' . '/' . $artikel_id;
+};
+$route['truncate-artikel'] = 'backend/artikel/clear';
+//deteksi 
+//$route['deteksi-data']= 'frontend/deteksi';
+
+$route['konsultasi'] = 'frontend/konsultasi';
+$route['mulai-konsul'] = 'frontend/konsultasi/addKonsultasi';
+$route['konfirmasi'] = 'frontend/konsultasi/konfirmasi';
+$route['pertanyaan'] = 'frontend/konsultasi/konsul';
+$route['execute'] = 'frontend/konsultasi/act';
+$route['cetak-hasil'] = 'frontend/konsultasi/hasil_pdf';

@@ -16,8 +16,11 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-
-      <a href="<?= base_url('home') ?>" class="logo me-auto"><img src="<?= base_url('assets/template/')?>img/logosypa.png" alt=""></a>
+ <a class="logo me-auto" href="<?= base_url('home') ?>">
+                        <img src="<?= base_url('assets/template/')?>img/logosypa.png" alt="logo">
+                        <img src="<?= base_url('assets/template/') ?>img/jti_black.png" height="35" alt="logo">
+                    </a>
+     
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <h1 class="logo me-auto"><a href="index.html">Medicio</a></h1> -->
 
@@ -50,7 +53,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Deteksi Dini</span> ISPA</a>
+      <a href="<?=base_url('konsultasi') ?>" class="appointment-btn scrollto"><span class="d-none d-md-inline">Deteksi Dini</span> ISPA</a>
 
     </div>
   </header><!-- End Header -->

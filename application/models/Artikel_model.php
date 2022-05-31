@@ -62,7 +62,7 @@ class Artikel_model extends CI_Model
     public function deleteData($id)
     {
         $row = $this->db->where($id, 'artikel_id')->get($this->_table)->row_array();
-        unlink('./assets/images/artikel-image/' . $row['artikel_img']);
+        unlink('./assets/i/artikel-image/' . $row['artikel_img']);
         return $this->db->where($id)->delete($this->_table);
     }
 

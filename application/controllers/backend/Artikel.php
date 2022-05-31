@@ -8,6 +8,8 @@ class Artikel extends CI_Controller
     {
         parent::__construct();
         $this->load->model('artikel_model');
+        $this->load->library('form_validation');
+        $this->load->library('upload');
     }
 
     public function index()
@@ -15,8 +17,8 @@ class Artikel extends CI_Controller
         //Create Log
         // save_log('view', 'artikel', 'View Datas');
         //Load
-        $data['is_active'] = 'art';
-        $data['title'] = "Halaman Artikel | Expert System Buah Naga";
+       // $data['is_active'] = 'art';
+        $data['title'] = "Halaman Artikel | Expert System ISPA";
         $data['judulHalaman'] = "Artikel";
         $data['detailHalaman'] = "Halaman artikel adalah halaman untuk melihat, memperbaharui, menghapus dan menambah Artikel. Kemudian akan ditampilkan pada halaman user yang gunanya agar pengunjung sistem dapat mengetahui beberapa informasi penting pada sistem pakar deteksi dini Infeksi Saluran Pernafasan Akut (ISPA)";
         $data['cardHeader'] = 'List Data Artikel';
@@ -36,10 +38,10 @@ class Artikel extends CI_Controller
     public function create()
     {
         //Create Log
-        save_log('create', 'artikel', 'Create Data');
+       // save_log('create', 'artikel', 'Create Data');
         //Load
-        $data['is_active'] = 'art';
-        $data['title'] = "Tambah Artikel Baru | Expert System Buah Naga";
+      //  $data['is_active'] = 'art';
+        $data['title'] = "Tambah Artikel Baru | Expert System ISPA";
         $data['judulHalaman'] = "Tambah Artikel Baru";
         $data['detailHalaman'] = "Halaman ini digunakan admin untuk menambahkan data Artikel baru ke dalam sistem";
         $data['cardHeader'] = 'Form Tambah Artikel Baru';
@@ -53,14 +55,14 @@ class Artikel extends CI_Controller
 
         //Execution
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('backend/_partials/head', $data);
+            $this->load->view('backend/_partials/header', $data);
             $this->load->view('backend/_partials/sidebar', $data);
             $this->load->view('backend/_partials/topbar', $data);
             $this->load->view('backend/data/artikel/add-artikel', $data);
-            $this->load->view('backend/_partials/foot');
+            $this->load->view('backend/_partials/footer');
         } else {
             //Config upload
-            $config['upload_path'] = './assets/images/artikel-image/'; //path folder upload
+            $config['upload_path'] = './assets/admin/img/artikel-image/'; //path folder upload
             $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //tipe yang dapat diupload
             $config['encrypt_name'] = TRUE; //enkripsi nama file ketika diupload
 
@@ -75,13 +77,13 @@ class Artikel extends CI_Controller
                     $gbr = $this->upload->data();
                     //config kompresi file
                     $config['image_library'] = 'gd2';
-                    $config['source_image'] = './assets/images/artikel-image/' . $gbr['file_name']; //source gambar yang akan dikompresi
+                    $config['source_image'] = './assets/admin/img/artikel-image/' . $gbr['file_name']; //source gambar yang akan dikompresi
                     $config['create_thumb'] = FALSE; //thumbnail
                     $config['maintain_ratio'] = FALSE; //ratio gambar
                     $config['quality'] = '80%'; //kualitas kompresi
                     $config['width'] = 710; //menentukan lebar
                     $config['height'] = 420; //menentukan tinggi
-                    $config['new_image'] = './assets/images/artikel_image/' . $gbr['file_name']; //gambar hasil kompresi
+                    $config['new_image'] = './assets/admin/img/artikel_image/' . $gbr['file_name']; //gambar hasil kompresi
                     //eksekusi kompresi
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
@@ -125,8 +127,8 @@ class Artikel extends CI_Controller
         //Load
         $where = array('a.artikel_slug' => $artikel_slug);
         $artikel = $this->artikel_model->viewBySlug($where);
-        $data['is_active'] = 'art';
-        $data['title'] = $artikel['artikel_judul'] . " | Expert System Buah Naga";
+     //   $data['is_active'] = 'art';
+        $data['title'] = $artikel['artikel_judul'] . " | Expert System ISPA";
         $data['artikeldata'] = $artikel;
         $data['user'] = $this->db->get_where('tb_user', ['user_email' => $this->session->userdata('email')])->row_array();
 
@@ -141,11 +143,11 @@ class Artikel extends CI_Controller
     public function update($artikel_slug)
     {
         //Create Log
-        save_log('update', 'artikel', 'Update Data');
+       // save_log('update', 'artikel', 'Update Data');
         //Load
         $where = array('artikel_slug' => $artikel_slug);
         $artikel = $this->artikel_model->getBySlug($where);
-        $data['is_active'] = 'art';
+       // $data['is_active'] = 'art';
         $data['title'] = "Edit Detail Artikel | Expert System Buah Naga";
         $data['judulHalaman'] = "Edit Data Artikel";
         $data['detailHalaman'] = "Halaman ini digunakan admin untuk memperbaharui data Artikel dalam sistem";
@@ -161,14 +163,14 @@ class Artikel extends CI_Controller
 
         //Execution
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('backend/_partials/head', $data);
+            $this->load->view('backend/_partials/header', $data);
             $this->load->view('backend/_partials/sidebar', $data);
             $this->load->view('backend/_partials/topbar', $data);
             $this->load->view('backend/data/artikel/edit-artikel', $data);
-            $this->load->view('backend/_partials/foot');
+            $this->load->view('backend/_partials/footer');
         } else {
             //Config upload
-            $config['upload_path'] = './assets/images/artikel-image/'; //path folder upload
+            $config['upload_path'] = './assets/admin/img/artikel-image/'; //path folder upload
             $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //tipe yang dapat diupload
             $config['encrypt_name'] = TRUE; //enkripsi nama file ketika diupload
 
@@ -180,18 +182,18 @@ class Artikel extends CI_Controller
                 //cek berhasil
                 if ($this->upload->do_upload('image')) {
                     //hapus foto lama
-                    unlink('./assets/images/artikel-image/' . $artikel['artikel_img']);
+                    unlink('./assets/admin/img/artikel-image/' . $artikel['artikel_img']);
                     //inisiasi
                     $gbr = $this->upload->data();
                     //config kompresi file
                     $config['image_library'] = 'gd2';
-                    $config['source_image'] = './assets/images/artikel-image/' . $gbr['file_name']; //source gambar yang akan dikompresi
+                    $config['source_image'] = './assets/admin/img/artikel-image/' . $gbr['file_name']; //source gambar yang akan dikompresi
                     $config['create_thumb'] = FALSE; //thumbnail
                     $config['maintain_ratio'] = FALSE; //ratio gambar
                     $config['quality'] = '80%'; //kualitas kompresi
                     $config['width'] = 710; //menentukan lebar
                     $config['height'] = 420; //menentukan tinggi
-                    $config['new_image'] = './assets/images/artikel_image/' . $gbr['file_name']; //gambar hasil kompresi
+                    $config['new_image'] = './assets/admin/img/artikel-image/' . $gbr['file_name']; //gambar hasil kompresi
                     //eksekusi kompresi
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
@@ -246,7 +248,7 @@ class Artikel extends CI_Controller
     public function delete($artikel_id)
     {
         //Create Log
-        save_log('delete', 'artikel', 'Delete Data');
+       // save_log('delete', 'artikel', 'Delete Data');
         //Load
         $where = array('artikel_id' => $artikel_id);
 

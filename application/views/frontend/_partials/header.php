@@ -28,6 +28,13 @@
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url('assets/template/')?>css/style.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets_wizard/css/paper-bootstrap-wizard.css" rel="stylesheet" />
+
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="<?= base_url() ?>assets_wizard/css/demo.css" rel="stylesheet" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  
 
   <!-- =======================================================
   * Template Name: Medicio - v4.6.0

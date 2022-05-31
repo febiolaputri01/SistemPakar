@@ -2,23 +2,22 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800"><?= $judulHalaman ?></h1>
-    <p class="mb-4"><?= $detailHalaman ?></p>
-
+    <h1 class="h3 mb-2 text-gray-800" style="color: navy;"><?= $judulHalaman ?></h1>
+   
     <?php echo $this->session->flashdata('message'); ?>
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary"><?= $cardHeader ?></h6>
+            <h6 class="h5 mb-2 text-center-1000" style="color: navy;" ><?= $cardHeader ?></h6>
             <div class="dropdown no-arrow">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
+                    <div class="dropdown-header"></div>
                     <a class="dropdown-item" href="<?= base_url('add-artikel') ?>">Tambah Baru</a>
-                    <a class="dropdown-item" href="<?= base_url('truncate-artikel') ?>">Kosongkan Tabel</a>
+                  <!--   <a class="dropdown-item" href="<?= base_url('truncate-artikel') ?>">Kosongkan Tabel</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Download Data</a>
+                    <a class="dropdown-item" href="#">Download Data</a> -->
                 </div>
             </div>
         </div>
@@ -43,7 +42,7 @@
                                 <tr>
                                     <td><?= ++$start ?></td>
                                     <td><?= $artikel['artikel_judul'] ?></td>
-                                    <td><img src="<?= base_url('assets/images/artikel-image/' . $artikel['artikel_img']) ?>" class="img-thumbnail" alt="<?= $artikel['artikel_slug'] ?>"></td>
+                                    <td><img src="<?= base_url('assets/admin/img/artikel-image/' . $artikel['artikel_img']) ?>" class="img-thumbnail" alt="<?= $artikel['artikel_slug'] ?>"></td>
                                     <td><?= $artikel['artikel_excerpt'] ?></td>
                                     <td><?= $artikel['user_name'] ?></td>
                                     <td><?= date('d, M Y', $artikel['artikel_create']) ?></td>
@@ -57,7 +56,7 @@
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="<?= base_url('view-artikel/' . $artikel['artikel_slug']) ?>" class="badge badge-primary"><i class="fas fa-fw fa-info-circle"></i></a>
+                                       <!--  <a href="<?= base_url('view-artikel/' . $artikel['artikel_slug']) ?>" class="badge badge-primary"><i class="fas fa-fw fa-info-circle"></i></a> -->
                                         <a href="<?= base_url('edit-artikel/' . $artikel['artikel_slug']) ?>" class="badge badge-warning"><i class="fas fa-fw fa-edit"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#deleteModal-<?= $artikel['artikel_id'] ?>" class=" badge badge-danger"><i class="fas fa-fw fa-trash-alt"></i></a>
                                     </td>
