@@ -11,7 +11,7 @@
           <div class="container">
             <h2>Mengapa harus  <span> Deteksi Dini?</span></h2>
             <p>Deteksi dini penyakit Infeksi Saluran Pernafasan Akut (ISPA ) dilakukan untuk mempermudah penemuan penyakit ISPA dengan menjawab pertanyaan terkait gejala yang di alami tanpa harus bertatap muka dengan dokter spesialis paru paru  dengan hasil mengetahui gejala awal penyakit ISPA secara otomatis dan akurat dengan identifikasi dan rekomendasi penanganan awal </p>
-            <a href="#about" class="btn-get-started scrollto">Deteksi Sekarang</a>
+            <a href="<?=base_url('konsultasi')?>" class="btn-get-started scrollto">Deteksi Sekarang</a>
           </div>
         </div>
 
@@ -20,7 +20,7 @@
           <div class="container">
             <h2>Kapan harus ke Dokter?</h2>
             <p>Bila dirimu atau anggota keluarga ada yang mengalami gejala-gejala yang merujuk pada penyakit ISPA, segeralah temui dokter untuk mendapatkan saran dan penanganan yang tepat.</p>
-            <a href="#about" class="btn-get-started scrollto">Deteksi Sekarang</a>
+            <a href="<?=base_url('konsultasi')?>" class="btn-get-started scrollto">Deteksi Sekarang</a>
           </div>
         </div>
 
@@ -34,7 +34,7 @@
                 Mengonsumsi makanan kaya serat dan vitamin untuk meningkatkan daya tahan tubuh.
                 Menutup mulut dan hidung dengan tisu atau tangan ketika bersin untuk mencegah penyebaran penyakit kepada orang lain.
                 Berolahraga secara teratur untuk membantu meningkatkan kekebalan tubuh.</p>
-            <a href="#about" class="btn-get-started scrollto">Deteksi Sekarang</a>
+            <a href="<?=base_url('konsultasi')?>" class="btn-get-started scrollto">Deteksi Sekarang</a>
           </div>
         </div>
 

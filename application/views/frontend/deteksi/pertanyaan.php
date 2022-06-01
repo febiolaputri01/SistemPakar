@@ -54,7 +54,8 @@
                                           <div class="form-group">
                                                     <h5 class="text-center"><b><?= $rn['random_pertanyaan'] ?></b></h5>
                                                     <input hidden class="form-check-input" name="pertanyaan<?= $rn['random_id'] ?>" value="<?= $rn['random_id_pertanyaan']?>">
-                                        <div class="row">
+                                                    <input hidden class="form-check-input" name="idgejala<?= $rn['random_id'] ?>" value="<?= $rn['id_gejala_pertanyaan']?>">
+                                                    <div class="row">
                                             <?php 
                                             $cfuser = [1, 0.8, 0.6, 0.4, 0.2, 0];
                                             for ($i=1; $i <= 6 ; $i++) { ?>

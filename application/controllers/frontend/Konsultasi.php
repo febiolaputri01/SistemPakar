@@ -113,140 +113,53 @@ class Konsultasi extends CI_Controller
     public function act()
     {
         $this->db->truncate('tmp_hitung');
-        for ($i=0; $i <= 5; $i++) { 
-            echo "id_pertanyaan = ".$_POST['pertanyaan'.($i+1)];
-            echo "nilai = ".$_POST['idtanya'.($i+1)];
-            echo "<br>";
+        for ($i=1; $i <= 6; $i++) { 
             $data = [
-                'hitung_id_pertanyaan' => $_POST['pertanyaan'.($i+1)],
-                'hitung_nilai' => $_POST['idtanya'.($i+1)]
+                'hitung_id_gejala' => $_POST['idgejala'.($i)],
+                'hitung_id_pertanyaan' => $_POST['pertanyaan'.($i)],
+                'hitung_nilai' => $_POST['idtanya'.($i)]
             ];
             $this->db->insert('tmp_hitung', $data);
-        };die;
-        $pilihan = $_POST["pilihan"];
-        $id = $_POST["id"];
-        $jumlah = $_POST['jumlah'];
-        $jum = $_POST['jum'];
-        $pen = $_POST['pen'];
-         $pertanyaan = $_POST["pertanyaan"];
-         $konsul = $_POST["konsulid"];
+            
+            $evidence[$i] = $this->db->get_where('tb_evidence',['evidence_gejala_id'=>$_POST['idgejala'.($i)]])->result_array();
+            $n = 1;
+            foreach ($evidence[$i] as $nilai) {
+                $rule1[$i][$n] = $nilai['evidence_nilai'] * $_POST['idtanya' . ($i)];
+                $n++;
+            }
+        };
 
-        for ($x = 0; $x < $jum; $x++) {
-            for ($i = 1; $i <= $jumlah; $i++) {
-                $numb = $pen[$x];
-                $nomor = $id[$i];
-                if (empty($pilihan[$nomor])) {
-                    echo 'Gagal';
-                } else {
-                    $jawaban = $pilihan[$nomor];
-                    $gjid = array(
-                        'evidence_penyakit_id' => $numb,
-                        'evidence_gejala_id' => $jawaban
-                    );
-                    $cek = $this->evidence_model->getByGejala($gjid);
-                    $data = [
-                        'hitung_penyakit_id' => $numb,
-                        'hitung_gejala_id' => $cek['evidence_gejala_id'],
-                        'hitung_nilai' => $cek['evidence_nilai']
-                    ];
-                    $this->db->insert('tmp_hitung', $data);
-                }
+        $total = $this->random_model->countPertanyaan();
+        for ($a = 1; $a <= 4; $a++){
+            for($b = 1; $b <= $total; $b++){
+            if(isset($rule1[$b][$a]) and isset($rule1[$b+1][$a])){
+                $rule2[$a] = $rule1[$b][$a] + ($rule1[$b+1][$a]*(1-$rule1[$b][$a]));
             }
         }
-        $this->_hitung();
     }
+    $penyakit = array_search(max($rule2),$rule2);
+    switch ($penyakit) {
+        case 1:
+            $nama_penyakit = "TUBERCULOSIS";
+            break;
+        case 2:
+            $nama_penyakit = "COVID- 19";
+            break;
+        case 3:
+            $nama_penyakit = "DIFTERI";
+            break;
+        case 4:
+            $nama_penyakit = "PNEUMONIA";
+            break;
+    }
+
+}
 
     private function _hitung()
     {
-        $konsul = $this->konsultasi_model->getPalingBaru();
-        $konsul_id = $konsul['konsultasi_id'];
-        $hapenjumlah = $this->hamapenyakit_model->count();
-        $where = array('konsultasi_id' => $konsul_id);
-        $tmp = 0;
-
-        for ($i = 1; $i <= $hapenjumlah; $i++) {
-            $coba = $this->hitung_model->getByHapen($i);
-            switch ($i) {
-                case 1:
-                    $probabilitas = 0.05;
-                    break;
-                case 2:
-                    $probabilitas = 0.05;
-                    break;
-                case 3:
-                    $probabilitas = 0.05;
-                    break;
-                case 4:
-                    $probabilitas = 0.05;
-                    break;
-                case 5:
-                    $probabilitas = 0.10;
-                    break;
-                case 6:
-                    $probabilitas = 0.10;
-                    break;
-                case 7:
-                    $probabilitas = 0.10;
-                    break;
-                case 8:
-                    $probabilitas = 0.36;
-                    break;
-                case 9:
-                    $probabilitas = 0.50;
-                    break;
-                case 10:
-                    $probabilitas = 0.18;
-                    break;
-            }
-            $nilaiprobpadahipo = 0;
-            $hasilkali = 1;
-
-            foreach ($coba as $c) {
-                $nilai = $c->hitung_nilai;
-                $hasilkali = $hasilkali * $nilai;
-                $probpadahipo = $hasilkali * $probabilitas;
-                $nilaihipo[$i] = $probpadahipo;
-                $nilaiprobpadahipo = $nilaiprobpadahipo + $nilaihipo[$i];
-            }
-            $tmp = $probpadahipo + $tmp;
-        }
-        for ($j = 1; $j <= $hapenjumlah; $j++) {
-            $prosentase[$j] = ($nilaihipo[$j] / $tmp) * 100;
-            $data = [
-                'hasilkonsultasi_konsultasi_id' => $konsul_id,
-                'hasilkonsultasi_konsultasi_hasil_hp' => $j,
-                'hasilkonsultasi_prosentase' => number_format($prosentase[$j]),
-            ];
-            $this->db->insert('tb_hasilkonsultasi', $data);
-        }
-        $mana = array('hasilkonsultasi_konsultasi_id' => $konsul_id);
-        $maximum = $this->hitung_model->getMax($mana);
-        $this->konsultasi_model->updateData(['konsultasi_id' => $konsul_id], ['konsultasi_hasilkonsultasi_id' => $maximum['hasilkonsultasi_id']]);
-
-        //tampilan
-        $data['is_active'] = 'knsl';
-        $data['title'] = "Hasil Konsultasi | Expert System Buah Naga";
-        $data['header'] = "Hasil Konsultasi";
-        $data['detail'] = "Halaman ini adalah halaman untuk pengguna melihat hasil dari konsultasi yang telah dilakukan";
-        $data['whosconsult'] = $this->konsultasi_model->getNewest();
-        $data['max'] = $maximum['hasilkonsultasi_prosentase'];
-        $data['pilihanuser'] = $this->hitung_model->getGejala();
-
-        // $coba = $this->hitung_model->getGejala();
-        // var_dump($coba);
-        // die;
-
-        $query = $this->hamapenyakit_model->getId($maximum['hasilkonsultasi_konsultasi_hasil_hp']);
-        $data['hamapenyakit'] = $query;
-
-        $solusi = $this->solusi_model->getId($maximum['hasilkonsultasi_konsultasi_hasil_hp']);
-        $data['solusi'] = $solusi;
-
-        $this->load->view('frontend/_partials/head', $data);
-        $this->load->view('frontend/_partials/navbar', $data);
-        $this->load->view('frontend/_partials/single-page-header', $data);
-        $this->load->view('frontend/konsultasi/hasil', $data);
-        $this->load->view('frontend/_partials/foot', $data);
+        
+        die;
+        
     }
 
     public function hasil_pdf()
