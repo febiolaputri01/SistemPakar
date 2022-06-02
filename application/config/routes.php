@@ -108,6 +108,6 @@ $route['mulai-konsul'] = 'frontend/konsultasi/addKonsultasi';
 $route['konfirmasi'] = 'frontend/konsultasi/konfirmasi';
 $route['pertanyaan'] = 'frontend/konsultasi/konsul';
 $route['execute'] = 'frontend/konsultasi/act';
-$route['cetak-hasil'] = 'frontend/konsultasi/hasil_pdf';
+$route['hasil'] = 'frontend/konsultasi/hasil';
 
 

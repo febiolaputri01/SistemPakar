@@ -183,4 +183,13 @@ class Konsultasi extends CI_Controller
         $this->pdf->filename = "hasil-konsultasi.pdf"; //set nama
         $this->pdf->load_view('frontend/konsultasi/cetak', $data);
     }
+
+
+    public function hasil()
+    {
+        $this->load->view('frontend/_partials/header');
+        $this->load->view('frontend/_partials/topbar');
+        $this->load->view('frontend/deteksi/hasil');
+        $this->load->view('frontend/_partials/footer'); 
+    }
 }
