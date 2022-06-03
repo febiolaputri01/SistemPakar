@@ -9,7 +9,7 @@
           <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
             <div class="icon-box mt-5 mt-lg-0">
              <i class="bi bi-info-square"></i>
-              <h4>1. Memberikan Informasi akurat terkait dengan penyakit ISPA</h4>
+              <h4>1. Memberikan Informasi terkait dengan penyakit ISPA</h4>
               <p> Informasi yang disediakan pada sistem ini akurat dan terpercaya karena didapatkan dari sumber sumber yang dapat dipertanggungjawabkan</p>
             </div>
             <div class="icon-box mt-5">

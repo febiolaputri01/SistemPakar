@@ -21,7 +21,7 @@ class Pertanyaan extends CI_Controller
        //$data['is_active'] = 'prt';
         $data['title'] = "Data Pertanyaan | Expert System Buah Naga";
         $data['judulHalaman'] = "Data Pertanyaan";
-        $data['detailHalaman'] = "Halaman Data Pertanyaan merupakan halaman dimana Administrator dapat menambahkan, mengurangi atau memperbaharui data Pertanyaan. Halaman ini hanya dapat diakses oleh user dengan level admin. Halaman ini berisi nilai keyakinan dari pakar tentang berapa nilai keyakinan akan gejala A disebabkan oleh hama atau penyakit A.";
+        $data['detailHalaman'] = "Halaman Data Pertanyaan merupakan halaman dimana Administrator dapat menambahkan, mengurangi atau memperbaharui data Pertanyaan. Halaman ini hanya dapat diakses oleh user dengan level admin. Halaman ini berisi soal dan pilihan jawaban yang diinputkan oleh admin.";
         $data['cardHeader'] = 'List Data Pertanyaan';
         $data['user'] = $this->db->get_where('tb_user', ['user_email' => $this->session->userdata('email')])->row_array();
         $data['start'] = 0;
@@ -42,7 +42,7 @@ class Pertanyaan extends CI_Controller
       //  save_log('create', 'pertanyaan', 'Create Data');
         //Load
         //$data['is_active'] = 'prt';
-        $data['title'] = "Tambah Pertanyaan Baru | Expert System Buah Naga";
+        $data['title'] = "Tambah Pertanyaan Baru | Expert System ISPA";
         $data['judulHalaman'] = "Tambah Pertanyaan Baru";
         $data['detailHalaman'] = "Halaman ini digunakan admin untuk menambahkan Pertanyaan baru ke dalam sistem";
         $data['cardHeader'] = 'Form Tambah Pertanyaan Baru';

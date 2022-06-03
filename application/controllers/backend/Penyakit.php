@@ -115,7 +115,7 @@ class Penyakit extends CI_Controller {
        // $data['is_active'] = 'hdp';
         $data['title'] = "Edit Detail Penyakit | Expert System ISPA";
         $data['judulHalaman'] = "Edit Data Penyakit";
-        $data['detailHalaman'] = "Halaman yang digunakan admin untuk memperbaharui data - data Penyakit yang perlu diperbaharui, seperti nama dan gambar Penyakit";
+        $data['detailHalaman'] = "Halaman yang digunakan admin untuk memperbaharui data - data Penyakit yang perlu diperbaharui.";
         $data['cardHeader'] = 'Form Edit Penyakit';
         $data['user'] = $this->db->get_where('tb_user', ['user_email' => $this->session->userdata('email')])->row_array();
         $data['penyakitdata'] = $this->penyakit_model->getById($where);

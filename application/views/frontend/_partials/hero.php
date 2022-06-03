@@ -10,7 +10,7 @@
         <div class="carousel-item active" style="background-image: url(assets/template/img/slide/slide1.png)">
           <div class="container">
             <h2>Mengapa harus  <span> Deteksi Dini?</span></h2>
-            <p>Deteksi dini penyakit Infeksi Saluran Pernafasan Akut (ISPA ) dilakukan untuk mempermudah penemuan penyakit ISPA dengan menjawab pertanyaan terkait gejala yang di alami tanpa harus bertatap muka dengan dokter spesialis paru paru  dengan hasil mengetahui gejala awal penyakit ISPA secara otomatis dan akurat dengan identifikasi dan rekomendasi penanganan awal </p>
+            <p>Deteksi dini penyakit Infeksi Saluran Pernafasan Akut (ISPA ) dilakukan untuk mempermudah penemuan penyakit ISPA dengan menjawab pertanyaan terkait gejala yang di alami tanpa harus bertatap muka dengan dokter spesialis paru paru dengan hasil mengetahui gejala awal penyakit ISPA secara otomatis dan akurat dengan identifikasi </p>
             <a href="<?=base_url('konsultasi')?>" class="btn-get-started scrollto">Deteksi Sekarang</a>
           </div>
         </div>
@@ -19,7 +19,7 @@
         <div class="carousel-item" style="background-image: url(assets/template/img/slide/slide2.png)">
           <div class="container">
             <h2>Kapan harus ke Dokter?</h2>
-            <p>Bila dirimu atau anggota keluarga ada yang mengalami gejala-gejala yang merujuk pada penyakit ISPA, segeralah temui dokter untuk mendapatkan saran dan penanganan yang tepat.</p>
+            <p>Perikakan diri anda ke dokter apabila anda merasakan gejala gejala penyakit untuk dapat mengetahui penyakit apa yang dialami dan dapat segera mengobatinya</p>
             <a href="<?=base_url('konsultasi')?>" class="btn-get-started scrollto">Deteksi Sekarang</a>
           </div>
         </div>
@@ -28,12 +28,12 @@
         <div class="carousel-item" style="background-image: url(assets/template/img/slide/slide3.png)">
           <div class="container">
             <h2> Pencegahan penyakit ISPA</h2>
-            <p> Cucilah tangan secara teratur, apalagi setelah beraktivitas di tempat umum.
-                Menghindari menyentuh bagian wajah, terutama mulut, hidung, dan mata dengan tangan agar terhindar dari penyebaran virus dan bakteri.
-                Menghindari merokok.
-                Mengonsumsi makanan kaya serat dan vitamin untuk meningkatkan daya tahan tubuh.
-                Menutup mulut dan hidung dengan tisu atau tangan ketika bersin untuk mencegah penyebaran penyakit kepada orang lain.
-                Berolahraga secara teratur untuk membantu meningkatkan kekebalan tubuh.</p>
+            <p> 1. Cucilah tangan secara teratur, apalagi setelah beraktivitas di tempat umum. <br>
+                2. Menghindari menyentuh bagian wajah, terutama mulut, hidung, dan mata dengan tangan agar terhindar dari penyebaran virus dan bakteri.
+                Menghindari merokok. <br>
+                3. Mengonsumsi makanan kaya serat dan vitamin untuk meningkatkan daya tahan tubuh. <br>
+                4. Menutup mulut dan hidung dengan tisu atau tangan ketika bersin untuk mencegah penyebaran penyakit kepada orang lain. <br>
+                5. Berolahraga secara teratur untuk membantu meningkatkan kekebalan tubuh.</p>
             <a href="<?=base_url('konsultasi')?>" class="btn-get-started scrollto">Deteksi Sekarang</a>
           </div>
         </div>

@@ -46,10 +46,10 @@ class Evidence extends CI_Controller
         //save_log('create', 'hipotesa', 'Create Data');
         //Load
         //$data['is_active'] = 'prb';
-        $data['title'] = "Tambah Hipotesa Baru | Expert System Buah Naga";
-        $data['judulHalaman'] = "Tambah Nilai Hipotesa Baru";
-        $data['detailHalaman'] = "Halaman ini digunakan admin untuk menambahkan nilai Hipotesa baru ke dalam sistem";
-        $data['cardHeader'] = 'Form Tambah Nilai Hipotesa Baru';
+        $data['title'] = "Tambah Hipotesa Baru | Expert System ISPA";
+        $data['judulHalaman'] = "Tambah bobot Nilai CF Pakar";
+        $data['detailHalaman'] = "Halaman ini digunakan admin untuk menambahkan bobot nilai keyakinan CF pakar";
+        $data['cardHeader'] = 'Form Tambah Nilai Bobot CF Pakar';
         $data['user'] = $this->db->get_where('tb_user', ['user_email' => $this->session->userdata('email')])->row_array();
         $data['count'] = $this->evidence_model->count();
         $data['evidence'] = $this->evidence_model->getSemua();
@@ -90,9 +90,9 @@ class Evidence extends CI_Controller
         $where = array('evidence_id' => $evidence_id);
         //$data['is_active'] = 'prb';
         $data['title'] = "Edit Nilai CF| Expert System ISPA";
-        $data['judulHalaman'] = "Edit Data Nilai Hipotesa";
+        $data['judulHalaman'] = "Edit Data Bobot Nilai CF pakar";
         $data['detailHalaman'] = "Halaman ini digunakan admin untuk memperbaharui data - data CF PAKAR";
-        $data['cardHeader'] = 'Form Edit Nilai Hipotesa';
+        $data['cardHeader'] = 'Form Edit Nilai Bobot CF pakar';
         $data['user'] = $this->db->get_where('tb_user', ['user_email' => $this->session->userdata('email')])->row_array();
         $data['cfdata'] = $this->evidence_model->getById($where);
         $data['penyakits'] = $this->penyakit_model->getAll();
