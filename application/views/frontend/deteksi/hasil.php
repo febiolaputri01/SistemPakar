@@ -14,35 +14,22 @@
               <h3>Data Pasien </h3>
             <!--   <h4><sup>$</sup>0<span> / month</span></h4> -->
               <ul>
-                 <table >
-                     <tbody>
-                        <tr>
-                          <td><strong>Nama Lengkap </strong></td>
-                        <!--   <td> : &nbsp;&nbsp;&nbsp;</td>
-                          <td>&nbsp;<?= $who['nama_pasien']; ?></td> -->
-                        </tr>
-                        <tr>
-                          <td><strong>Usia </strong></td>
-                       <!--    <td>: &nbsp;&nbsp;&nbsp;</td>
-                          <td>&nbsp;<?= $who['usia']; ?></td> -->
-                        </tr>
-                          <tr>
-                          <td><strong>No Telepon </strong></td>
-                        <!--   <td>: &nbsp;&nbsp;&nbsp;</td>
-                          <td>&nbsp;<?= $who['no_telfon']; ?></td> -->
-                        </tr>
-                        <tr>
-                          <td><strong>Alamat </strong></td>
-                         <!--  <td>: &nbsp;&nbsp;&nbsp;</td>
-                          <td>&nbsp;<?= $who['alamat']; ?></td> -->
-                        </tr>
-                        <tr>
-                          <td><strong>Jenis Kelamin </strong></td>
-                        <!--   <td>: &nbsp;&nbsp;&nbsp;</td>
-                          <td>&nbsp;<?= $who['jenis_kelamin']; ?></td> -->
-                        </tr>
-                   </tbody>
-                 </table>
+                
+                      <strong>Nama Lengkap</strong><br>
+                      <?= $datapasien['nama_pasien']; ?><br><br>
+                   
+                      <strong class="pull-left">Usia</strong><br>
+                      <?= $datapasien['usia']; ?><br><br>
+                        
+                      <strong>No Telepon </strong><br>
+                      &nbsp;<?= $datapasien['no_telfon']; ?><br><br>
+                        
+                      <strong>Alamat </strong><br> 
+                      &nbsp;<?= $datapasien['alamat']; ?><br><br>
+                  
+                      <strong>Jenis Kelamin </strong><br>
+                      &nbsp;<?= $datapasien['jenis_kelamin']; ?><br><br>
+                        
               </ul>
              
             </div>
@@ -51,30 +38,16 @@
           <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
             <div class="box featured" data-aos="fade-up" data-aos-delay="200">
               <h3>Gejala yang terpilih</h3>
-             <!--  <h4><sup>$</sup>19<span> / month</span></h4> -->
-              <ul>
-              <!--   <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li> -->
-              </ul>
-              
+              <?php for ($i=1; $i <=$count ; $i++) { ?>
+                <ul><li><?=$gejala[$i]->nama_gejala?></li></ul>         
+              <?php } ?>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
             <div class="box" data-aos="fade-up" data-aos-delay="300">
               <h3>Hasil Deteksi Sistem Pakar</h3>
-             <!--  <h4><sup>$</sup>29<span> / month</span></h4> -->
-              <ul>
-             <!--    <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li> -->
-              </ul>
-             
+              <h2><?=$penyakit?></h2>             
             </div>
           </div>
 
@@ -82,15 +55,9 @@
             <div class="box" data-aos="fade-up" data-aos-delay="400">
               <span class="advanced">Identifikasi</span>
               <h3>Kesimpulan</h3>
-             <!--  <h4><sup>$</sup>49<span> / month</span></h4> -->
-              <ul>
-     <!--            <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li> -->
-              </ul>
-            
+
+              <h4>Dengan persentase sebesar <?=$persentase*100?> %</h4>
+              
             </div>
           </div>
 

@@ -152,7 +152,9 @@ class Konsultasi extends CI_Controller
             $nama_penyakit = "PNEUMONIA";
             break;
     }
-
+        $kesimpulan['penyakit'] = $nama_penyakit;
+        $kesimpulan['persentase'] = max($rule2);
+        $this->hasil($kesimpulan);
 }
 
     private function _hitung()
@@ -185,11 +187,23 @@ class Konsultasi extends CI_Controller
     }
 
 
-    public function hasil()
+    public function hasil($kesimpulan)
     {
+        $data['datapasien']=$this->konsultasi_model->getPalingBaru();
+        $data['penyakit']=$kesimpulan['penyakit'];
+        $data['persentase']=$kesimpulan['persentase'];
+        $this->db->select('hitung_id_gejala');
+        $gej = $this->db->get('tmp_hitung')->result_array();
+        $data['count']=count($gej);
+        $s = 1;
+        foreach ($gej as $gej){
+            $data['gejala'][$s]=$this->db->where('id_gejala',$gej['hitung_id_gejala'])->get('tb_gejala')->row();
+            $s++;
+        }
+
         $this->load->view('frontend/_partials/header');
         $this->load->view('frontend/_partials/topbar');
-        $this->load->view('frontend/deteksi/hasil');
+        $this->load->view('frontend/deteksi/hasil',$data);
         $this->load->view('frontend/_partials/footer'); 
     }
 }
