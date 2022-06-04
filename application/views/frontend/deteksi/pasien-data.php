@@ -16,15 +16,16 @@
               <input type="text" name="nama" class="form-control" id="nama" placeholder=" Nama Lengkap" required>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="text" class="form-control" name="usia" id="usia" placeholder="Usia" required>
+              <input type="number" class="form-control" name="usia" id="usia" placeholder="Usia" required>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="No Telefon" required>
+              <input type="number" class="form-control" name="phone" id="phone" placeholder="No Telefon" required>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4 form-group mt-3">
-              <input type="datetime" name="alamat" class="form-control" id="alamat" placeholder="Alamat" required>
+              <!-- <input type="datetime" name="alamat" class="form-control" id="alamat" placeholder="Alamat" required> -->
+							<textarea name="alamat" class="form-control" id="alamat" placeholder="Alamat" row="5" required></textarea>
             </div>
             <div class="col-md-4 form-group mt-3">
               <select name="jk" id="jk" class="form-select">

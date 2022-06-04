@@ -54,7 +54,7 @@ class Konsultasi extends CI_Controller
         $data['whosconsult'] = $this->konsultasi_model->getNewest();
         $data['wajib'] = $this->pertanyaan_model->get();
         $data['umum'] = $this->pertanyaan_model->getRandom();
-		print_r($this->db->last_query());
+	
         $this->form_validation->set_rules('konsul-id', 'ID Konsultasi', 'required', [
             'required' => 'ID Konsultasi tidak boleh kosong'
         ]);
@@ -115,7 +115,7 @@ class Konsultasi extends CI_Controller
     public function act()
     {
         $this->db->truncate('tmp_hitung');
-        for ($i=1; $i <= 6; $i++) { 
+        for ($i=1; $i <= $_POST['jumlah']; $i++) { 
             $data = [
                 'hitung_id_gejala' => $_POST['idgejala'.($i)],
                 'hitung_id_pertanyaan' => $_POST['pertanyaan'.($i)],
@@ -130,7 +130,7 @@ class Konsultasi extends CI_Controller
                 $n++;
             }
         };
-
+	
         $total = $this->random_model->countPertanyaan();
         for ($a = 1; $a <= 4; $a++){
             for($b = 1; $b <= $total; $b++){

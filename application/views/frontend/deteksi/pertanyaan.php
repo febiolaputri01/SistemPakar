@@ -26,6 +26,7 @@
                                     <ul>
                                         <?php foreach ($random as $rn) : ?>
                                         <input type="hidden" name="jumlah" id="jumlah" value="<?= $jumlah ?>">
+										<input type="hidden" name="jumlah_tanya" id="jumlah_tanya" value="6">
                                         <input type="hidden" name="jum" id="jum" value="<?= $penjumlah ?>">
                                         <input type="hidden" name="konsulid[]" id="konsulid[]" value="<?= $rn['id_deteksi_pasien'] ?>">
                                         <input type="hidden" name="tanya[]" id="tanya[]" value="<?= $rn['random_pertanyaan'] ?>">
@@ -48,20 +49,20 @@
                                     </ul>
                                 </div>
                                 <div class="tab-content">
-                                     <?php foreach ($random as $rn) : ?>
+                                     <?php $no=1;  foreach ($random as $rn) : ?>
                                     <div class="tab-pane" id="detail-<?= $rn['random_id'] ?>">
 
                                           <div class="form-group">
                                                     <h5 class="text-center"><b><?= $rn['random_pertanyaan'] ?></b></h5>
-                                                    <input hidden class="form-check-input" name="pertanyaan<?= $rn['random_id'] ?>" value="<?= $rn['random_id_pertanyaan']?>">
-                                                    <input hidden class="form-check-input" name="idgejala<?= $rn['random_id'] ?>" value="<?= $rn['id_gejala_pertanyaan']?>">
+                                                    <input hidden class="form-check-input" name="pertanyaan<?= $no ?>" value="<?= $rn['random_id_pertanyaan']?>">
+                                                    <input hidden class="form-check-input" name="idgejala<?= $no ?>" value="<?= $rn['id_gejala_pertanyaan']?>">
                                                     <div class="row">
                                             <?php 
                                             $cfuser = [1, 0.8, 0.6, 0.4, 0.2, 0];
                                             for ($i=1; $i <= 6 ; $i++) { ?>
                                                
                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="idtanya<?=$rn['random_id_pertanyaan']?>" id="pilihan[<?= $rn['random_id_pertanyaan'] ?>]" value="<?=$cfuser[($i-1)]?>" >
+                                            <input class="form-check-input" type="radio" name="idtanya<?=$no?>" id="pilihan[<?= $rn['random_id_pertanyaan'] ?>]" value="<?=$cfuser[($i-1)]?>" >
                                             <label for="pilihan[<?= $rn['random_id'] ?>]"><?= $rn['jawaban_'.$i] ?></label>
                                          </div>
                                          <?php } ?>
@@ -69,7 +70,7 @@
                                         </div>
                                          </div>
                                     </div>
-                                    <?php endforeach; ?>
+                                    <?php $no++; endforeach; ?>
                            
             
                                 </div>
