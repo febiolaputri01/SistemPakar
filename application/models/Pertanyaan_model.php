@@ -41,11 +41,13 @@ class Pertanyaan_model extends CI_Model
 
     public function getRandom()
     {
-        $this->db->limit(12, 0);
-        $this->db->order_by("RAND ()");
-        $this->db->where("id_pertanyaan NOT IN (select id_pertanyaan from tb_pertanyaan where id_pertanyaan = '1')");
+        // $this->db->limit(12, 0);
+        // $this->db->order_by("RAND ()");
+        // $this->db->where("id_pertanyaan NOT IN (select id_pertanyaan from tb_pertanyaan )");
 
-        return $this->db->get($this->_table)->result();
+        // return $this->db->get($this->_table)->result();
+		$sql = "SELECT * FROM tb_pertanyaan  ORDER BY RAND() LIMIT 18";
+        return $this->db->query($sql)->result();
     }
 
     public function inputData($data)

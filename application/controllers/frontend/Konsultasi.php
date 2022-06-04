@@ -54,7 +54,7 @@ class Konsultasi extends CI_Controller
         $data['whosconsult'] = $this->konsultasi_model->getNewest();
         $data['wajib'] = $this->pertanyaan_model->get();
         $data['umum'] = $this->pertanyaan_model->getRandom();
-
+		print_r($this->db->last_query());
         $this->form_validation->set_rules('konsul-id', 'ID Konsultasi', 'required', [
             'required' => 'ID Konsultasi tidak boleh kosong'
         ]);
@@ -67,6 +67,7 @@ class Konsultasi extends CI_Controller
         } else {
             $result = array();
             foreach ($_POST['id_per'] as $key => $val) {
+				
                 $result[] = array(
                     'random_id_deteksi_pasien' => $_POST['konsul-id'],
                     'random_id_pertanyaan' => $_POST['id_per'][$key],
@@ -80,6 +81,7 @@ class Konsultasi extends CI_Controller
                     'random_kode' => uniqid()
                 );
             }
+			
             $query = $this->db->get('tmp_random');
             if ($query->num_rows() >= 1) {
                 $this->db->truncate('tmp_random');
