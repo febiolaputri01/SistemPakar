@@ -28,13 +28,30 @@
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url('assets/template/')?>css/style.css" rel="stylesheet">
-  <link href="<?= base_url() ?>assets_wizard/css/paper-bootstrap-wizard.css" rel="stylesheet" />
+
 
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="<?= base_url() ?>assets_wizard/css/demo.css" rel="stylesheet" />
-
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   
+
+
+ <!--  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" /> -->
+
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+  <!-- CSS Files -->
+ <link href="<?= base_url() ?>assets_wizard/css/bootstrap.min.css" rel="stylesheet" /> 
+  <link href="<?= base_url() ?>assets_wizard/css/material-bootstrap-wizard.css" rel="stylesheet" />
+
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+<!--   <link href="<?= base_url() ?>assets_wizard/css/demo.css" rel="stylesheet" /> -->
+
+
+
+
 
   <!-- =======================================================
   * Template Name: Medicio - v4.6.0

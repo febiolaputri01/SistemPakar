@@ -88,17 +88,18 @@
 
   <!-- Template Main JS File -->
   <script src="<?= base_url('assets/template/')?>js/main.js"></script>
-  <script src="<?= base_url() ?>assets_wizard/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
-
-  <!--  Plugin for the Wizard -->
-  <script src="<?= base_url() ?>assets_wizard/js/demo.js" type="text/javascript"></script>
-  <script src="<?= base_url() ?>assets_wizard/js/paper-bootstrap-wizard.js" type="text/javascript"></script>
-
-  <!--  More information about jquery.validate here: https://jqueryvalidation.org/   -->
-  <script src="<?= base_url() ?>assets_wizard/js/jquery.validate.min.js" type="text/javascript"></script>
   
 
-<!-- tambahan --> 
+<script src="<?= base_url() ?>assets_wizard/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+  <script src="<?= base_url() ?>assets_wizard/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="<?= base_url() ?>assets_wizard/js/jquery.bootstrap.js" type="text/javascript"></script>
+
+  <!--  Plugin for the Wizard -->
+  <script src="<?= base_url() ?>assets_wizard/js/material-bootstrap-wizard.js"></script>
+
+  <!--  More information about jquery.validate here: http://jqueryvalidation.org/  -->
+  <script src="<?= base_url() ?>assets_wizard/js/jquery.validate.min.js"></script>
+
 <script>
     window.setTimeout(function() {
         $(".alert").fadeTo(500, 0).slideUp(500, function() {

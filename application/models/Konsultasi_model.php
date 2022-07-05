@@ -5,6 +5,7 @@ class Konsultasi_model extends CI_Model
 {
     private $_table = 'tb_deteksi_pasien';
 
+
     public function getAll()
     {
         $this->db->select(
@@ -17,15 +18,43 @@ class Konsultasi_model extends CI_Model
         return $this->db->get($this->_table)->result_array();
     }
 
-    public function count()
-    {
-        $query = $this->db->get($this->_table);
-        if ($query->num_rows() > 0) {
-            return $query->num_rows();
-        } else {
-            return 0;
-        }
+
+    function tampil_data(){
+        return $this->db->get('tb_pertanyaan');
     }
+ function input_data($data,$table){
+                $this->kode    = $_POST['id_pertanyaan'];   
+        $this->db->insert($table,$data);
+                return $this->db->get('pertanyaan');
+
+    }    
+
+
+    function pilihan()
+    {
+        $name_semua       = $this->input->post('pertanyaan[]');
+        $data['id_pertanyaan']      = $name_semua;
+         $this->db->select('tb_pertanyaan.*, tb_evidence.*');
+$this->db->from('pertanyaan');
+$this->db->join('tb_evidence','tb_evidence.evidence_gejala_id = tb_pertanyaan.id_gejala_pertanyaan');
+
+// $this->db->join('pencegahan','pencegahan.id_gejala = gejala.id_gejala');
+            $this->db->where('pertanyaan.id_pertanyaan', $data);
+            $query = $this->db->get();
+            return $query->result();
+
+
+}
+
+    // public function count()
+    // {
+    //     $query = $this->db->get($this->_table);
+    //     if ($query->num_rows() > 0) {
+    //         return $query->num_rows();
+    //     } else {
+    //         return 0;
+    //     }
+    // }
 
     public function inputData($data)
     {

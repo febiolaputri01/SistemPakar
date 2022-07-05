@@ -83,6 +83,9 @@ $route['delete-cf/(:num)'] = function ($evidence_id) {
 $route['data-pertanyaan'] = 'backend/pertanyaan';
 $route['add-pertanyaan'] ='backend/pertanyaan/create';
 
+$route['aturan'] = 'backend/aturan';
+
+
 $route['delete-gejala/(:num)'] = function ($id_gejala) {
     return 'backend/gejala/delete' . '/' . $id_gejala;
 };

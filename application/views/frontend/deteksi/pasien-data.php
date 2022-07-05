@@ -28,7 +28,7 @@
 							<textarea name="alamat" class="form-control" id="alamat" placeholder="Alamat" row="5" required></textarea>
             </div>
             <div class="col-md-4 form-group mt-3">
-              <select name="jk" id="jk" class="form-select">
+              <select name="jk" id="jk" class="form-select" required>
                 <option value="">Jenis Kelamin</option>
                 <option value="perempuan">Perempuan</option>
                 <option value="Laki-laki">Laki-Laki</option>

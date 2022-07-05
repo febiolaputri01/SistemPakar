@@ -53,62 +53,64 @@ class Konsultasi extends CI_Controller
         $data['detail'] = "Halaman ini adalah halaman untuk pengguna melakukan konsultasi";
         $data['whosconsult'] = $this->konsultasi_model->getNewest();
         $data['wajib'] = $this->pertanyaan_model->get();
-        $data['umum'] = $this->pertanyaan_model->getRandom();
-	
-        $this->form_validation->set_rules('konsul-id', 'ID Konsultasi', 'required', [
-            'required' => 'ID Konsultasi tidak boleh kosong'
-        ]);
+        //$data['umum'] = $this->pertanyaan_model->getRandom();
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('frontend/_partials/header', $data);
+         $this->load->view('frontend/_partials/header', $data);
         $this->load->view('frontend/_partials/topbar', $data);
         $this->load->view('frontend/deteksi/konfirmasi', $data);
         $this->load->view('frontend/_partials/footer', $data);
-        } else {
-            $result = array();
-            foreach ($_POST['id_per'] as $key => $val) {
+	
+        // $this->form_validation->set_rules('konsul-id', 'ID Konsultasi', 'required', [
+        //     'required' => 'ID Konsultasi tidak boleh kosong'
+        // ]);
+
+        // if ($this->form_validation->run() == FALSE) {
+           
+        // } else {
+            // $result = array();
+            // foreach ($_POST['id_per'] as $key => $val) {
 				
-                $result[] = array(
-                    'random_id_deteksi_pasien' => $_POST['konsul-id'],
-                    'random_id_pertanyaan' => $_POST['id_per'][$key],
-                    'random_pertanyaan' => $_POST['pertanyaan'][$key],
-                    'random_jawaban_1' => $_POST['o1'][$key],
-                    'random_jawaban_2' => $_POST['o2'][$key],
-                    'random_jawaban_3' => $_POST['o3'][$key],
-                    'random_jawaban_4' => $_POST['o4'][$key],
-                    'random_jawaban_5' => $_POST['o5'][$key],
-                    'random_jawaban_6' => $_POST['o6'][$key],
-                    'random_kode' => uniqid()
-                );
-            }
+            //     $result[] = array(
+            //         'random_id_deteksi_pasien' => $_POST['konsul-id'],
+            //         'random_id_pertanyaan' => $_POST['id_per'][$key],
+            //         'random_pertanyaan' => $_POST['pertanyaan'][$key],
+            //         'random_jawaban_1' => $_POST['o1'][$key],
+            //         'random_jawaban_2' => $_POST['o2'][$key],
+            //         'random_jawaban_3' => $_POST['o3'][$key],
+            //         'random_jawaban_4' => $_POST['o4'][$key],
+            //         'random_jawaban_5' => $_POST['o5'][$key],
+            //         'random_jawaban_6' => $_POST['o6'][$key],
+            //         'random_kode' => uniqid()
+            //     );
+            // }
 			
-            $query = $this->db->get('tmp_random');
-            if ($query->num_rows() >= 1) {
-                $this->db->truncate('tmp_random');
-                $this->db->insert_batch('tmp_random', $result);
-                redirect('pertanyaan');
-            } else {
-                $this->db->insert_batch('tmp_random', $result);
-                redirect('pertanyaan');
-            }
+            // $query = $this->db->get('tmp_random');
+            // if ($query->num_rows() >= 1) {
+            //     $this->db->truncate('tmp_random');
+            //     $this->db->insert_batch('tmp_random', $result);
+            //     redirect('pertanyaan');
+                // $this->db->insert_batch('tmp_random', $result);
+            //      redirect('pertanyaan');
+            // }
         }
-    }
+    
 
     public function konsul()
     {
-        $data['is_active'] = 'knsl';
+      //  $data['is_active'] = 'knsl';
         $data['title'] = "Konsultasi | Expert System ISPA";
         $data['header'] = "Konsultasi";
         $data['detail'] = "Halaman ini adalah halaman untuk pengguna melakukan konsultasi mengenai gejala yang ditemui pada tanaman buah naga";
-        $data['random'] = $this->random_model->getAll();
+        //$data['random'] = $this->random_model->getAll();
         $data['start'] = 0;
-        $data['jumlah'] = $this->random_model->count();
+        //$data['limit'] = $this->pertanyaan_model->limit();
+       $data['pertanyaan'] = $this->pertanyaan_model->getAll();
         $data['penyakit'] = $this->penyakit_model->getAll();
-        $data['penjumlah'] = $this->penyakit_model->count();
+        $data['penjumlah'] =10;
 
         $this->load->view('frontend/_partials/header', $data);
         $this->load->view('frontend/_partials/topbar', $data);
-        $this->load->view('frontend/deteksi/pertanyaan', $data);
+        $this->load->view('frontend/deteksi/question', $data);
         $this->load->view('frontend/_partials/footer', $data);
     }
 

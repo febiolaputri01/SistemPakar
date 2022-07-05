@@ -38,16 +38,16 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <form action="<?= base_url('konfirmasi') ?>" method="POST">
+                                       <!--  <form action="<?= base_url('pertanyaan') ?>" method="POST">
                                             <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" style="display: none;">
-                                            <input type="hidden" name="konsul-id" id="konsul-id" value="<?= $who['id_deteksi_pasien']; ?>"><?= form_error('konsul-id', '<small class="text-danger pl-3">', '</small>') ?>
-                                            <!-- <?php foreach ($wajib as $w) : ?> -->
+                                            <input type="hidden" name="konsul-id" id="konsul-id" value="<?= $who['id_deteksi_pasien']; ?>"><?= form_error('konsul-id', '<small class="text-danger pl-3">', '</small>') ?> -->
+                                           <!--   <?php foreach ($wajib as $w) : ?>  -->
                                                
-                                                <?php foreach ($umum as $u) : 
-												//	var_dump($u->jawaban_5);	
-												?>
+                                               <!--  <?php foreach ($umum as $u) : 
+												
+												?> -->
 													
-                                                    <div class="form-group row" hidden>
+                                                    <!-- <div class="form-group row" hidden>
                                                          <div class="col-sm-2" >
                                                         <input type="text" class="form-control" id="id_per[]" name="id_per[]" value="<?= $u->id_pertanyaan ?>">
                                                     </div>
@@ -72,12 +72,12 @@
                                                     <div class="col-sm-2" >
                                                         <input type="text" class="form-control" id="o6[]" name="o6[]" value="<?= $u->jawaban_6 ?>">
                                                     </div>
-                                                    </div>
-                                                <?php endforeach; ?>
+                                                    </div> -->
+                                               <!--  <?php endforeach; ?> -->
                                             <!-- <?php endforeach; ?> -->
                                             <br>
                                             <div class="text-center">
-                                                <button type="submit" class="btn btn-primary">Mulai Konsultasi</button>
+                                                <button type="button" class="btn btn-primary"><a href="<?= base_url('pertanyaan') ?>">Mulai Konsultasi</a></button>
                                             </div>
                                         </form>
                                     <?php endforeach; ?>
