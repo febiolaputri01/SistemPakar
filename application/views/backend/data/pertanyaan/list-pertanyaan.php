@@ -34,8 +34,6 @@
                             <th>OPSI 2 (0,80)</th>
                             <th>OPSI 3 (0,60)</th>
                             <th>OPSI 4 (0,40)</th>
-                            <th>OPSI 5 (0,20)</th>
-                            <th>OPSI 6 (0,00)</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -50,8 +48,7 @@
                                     <td><?= $opsi['jawaban_2'] ?></td>
                                     <td><?= $opsi['jawaban_3'] ?></td>
                                     <td><?= $opsi['jawaban_4'] ?></td>
-                                    <td><?= $opsi['jawaban_5'] ?></td>
-                                    <td><?= $opsi['jawaban_6'] ?></td>
+                                  
                                     <td>
                                         <!-- <a href="" class="badge badge-primary"><i class="fas fa-fw fa-info-circle"></i></a> -->
                                         <a href="<?= base_url('edit-pertanyaan/' . $opsi['id_pertanyaan']) ?>" class="badge badge-warning"><i class="fas fa-fw fa-edit"></i></a>

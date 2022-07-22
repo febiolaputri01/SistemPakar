@@ -47,7 +47,23 @@
             </div>
           </div>
 
-   
+           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="300">
+              <div class="member-img" style="height: 261px;">
+                <img src="<?= base_url('assets/template/') ?>img/doctors/buvany.png" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Zilvanhisna Emka Fitri, S.ST.M.T</h4>
+                <span>Dosen<br> Politeknik Negeri Jember</span>
+              </div>
+            </div>
+          </div>
 
         </div>
 

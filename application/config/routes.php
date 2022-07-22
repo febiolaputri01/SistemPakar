@@ -109,7 +109,9 @@ $route['truncate-artikel'] = 'backend/artikel/clear';
 $route['konsultasi'] = 'frontend/konsultasi';
 $route['mulai-konsul'] = 'frontend/konsultasi/addKonsultasi';
 $route['konfirmasi'] = 'frontend/konsultasi/konfirmasi';
-$route['pertanyaan'] = 'frontend/konsultasi/konsul';
+$route['pertanyaan'] = 'frontend/konsultasi/konsul1';
+$route['pertanyaan2'] = 'frontend/konsultasi/konsul2';
+$route['pertanyaan3'] = 'frontend/konsultasi/konsul3';
 $route['execute'] = 'frontend/konsultasi/act';
 $route['hasil'] = 'frontend/konsultasi/hasil';
 

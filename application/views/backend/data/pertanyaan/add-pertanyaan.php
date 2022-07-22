@@ -45,12 +45,7 @@
                              <div class="col-sm-6">
                                 <input type="text-danger" class="form-control" name="jawaban4" id="jawaban4"  placeholder="opsi jwaban 0,40"><?= form_error('jawaban4', '<small class="text-danger pl-3">', '</small>') ?> <br>
                             </div>
-                             <div class="col-sm-6">
-                                <input type="text-danger" class="form-control" name="jawaban5" id="jawaban5"  placeholder="opsi jawaban 0,20"><?= form_error('jawaban5', '<small class="text-danger pl-3">', '</small>') ?> <br>
-                            </div>
-                             <div class="col-sm-6">
-                                <input type="text-danger" class="form-control" name="jawaban6" id="jawaban6"  placeholder="opsi jawaban 0,00"><?= form_error('jawaban6', '<small class="text-danger pl-3">', '</small>') ?>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="card-footer">

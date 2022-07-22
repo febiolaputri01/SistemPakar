@@ -20,11 +20,12 @@
                           </div>
                 
                 <div class="wizard-navigation">
-                  <?php 
-                    $coba = count(array_chunk($pertanyaan, 3));
+                  
+                  <ul> 
+                     <?php $coba2 = count(array_chunk($pertanyaan2, 3));
                   
                   ?>
-                  <ul> <?php for($x=1;$x<$coba;$x++){ ?>
+                  <ul> <?php for($x=1;$x<$coba2;$x++){ ?>
                     <li>
                       <a href="#detail-<?= $x; ?>" data-toggle="tab">
                         <?php
@@ -34,64 +35,57 @@
                       </a>
                     </li>
                                  
-                                 <!--  <li><a href="#captain" data-toggle="tab">Room Type</a></li>
-                                  <li><a href="#description" data-toggle="tab">Extra Details</a></li> -->
+                                
                                    <?php }; ?>
                               </ul>
                 </div>
                 
 
-                            <div class="tab-content">
-                              <?php foreach ($pertanyaan as $p ) { ?>
-                    <div class="tab-pane" id="detail-<?= $p['id_pertanyaan_grup'] ?>">
-                    <?php
-                    $id = $p['id_pertanyaan_grup'];
-                    
-                    $query = "SELECT * FROM  `tb_pertanyaan`  WHERE `tb_pertanyaan`.`id_pertanyaan_grup` = $id";
-                    $query2 = $this->db->query($query)->result_array();
-                    
-                  ?>
-                                <?php foreach ($query2 as $b ) { ?>
+                         <div class="tab-content">
+                              <?php foreach ($pertanyaan2 as $p ) { ?>
+                    <div class="tab-pane" id="detail-<?= $p['id_pertanyaan_grup2'] ?>">
+                
+                               
                                   <div class="row">
                                     <div class="col-sm-12">
-                                          <h3 class="text pertanyaan_class_all" style="color: orangered;"><?php echo $b['pertanyaan'] ?></h3>
+                                          <h3 class="text pertanyaan_class_all" style="color: orangered;"><?php echo $p['pertanyaan'] ?></h3>
                                     </div>
-                  <?php if($b['jawaban_1'] != "") { ?>
+                  <?php if($p['jawaban1_pertanyaan2'] != "") { ?>
                     <div class="radio" style="color: black;">
-                    <label>
-                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan']; ?>" name="jawaban[<?= $b['id_pertanyaan']; ?>]" value="1">
-                     <b  style="color: black; font-size: large;" ><?= $b['jawaban_1'] ?> </b> 
+                    <label for="jawaban[<?= $p['id_pertanyaan2'] ?>]" >
+                      <input type="radio" class="jawaban jawaban_<?= $p['id_pertanyaan2']; ?>" name="jawaban[<?= $p['id_pertanyaan2']; ?>]" value="1">
+                   <b  style="color: black; font-size: large;" ><?= $p['nama1'] ?> </b> 
                     </label>
                   </div>
                   <?php } ?>
-                  <?php if($b['jawaban_2'] != "") { ?>
+                  <?php if($p['jawaban2_pertanyaan2'] != "") { ?>
                   <div class="radio">
-                    <label>
-                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan']; ?>" name="jawaban[<?= $b['id_pertanyaan']; ?>]" value="0.8">
-                      <b  style="color: black; font-size: large;" ><?= $b['jawaban_2'] ?></b>
+                    <label for="jawaban[<?= $p['id_pertanyaan2'] ?>]">
+                      <input type="radio" class="jawaban jawaban_<?= $p['id_pertanyaan2']; ?>" name="jawaban[<?= $p['id_pertanyaan2']; ?>]" value="0.8">
+                      <b  style="color: black; font-size: large;" ><?= $p['nama2'] ?></b>
                     </label>
                   </div>
                   <?php } ?>
-                  <?php if($b['jawaban_3'] != "") { ?>
+                  <?php if($p['jawaban3_pertanyaan2'] != "") { ?>
                   <div class="radio">
-                    <label>
-                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan']; ?>" name="jawaban[<?= $b['id_pertanyaan']; ?>]" value="0.6">
-                     <b style="color: black; font-size: large;"> <?= $b['jawaban_3'] ?> </b> 
+                    <label for="jawaban[<?= $p['id_pertanyaan2'] ?>]">
+                      <input type="radio" class="jawaban jawaban_<?= $p['id_pertanyaan2']; ?>" name="jawaban[<?= $p['id_pertanyaan2']; ?>]" value="0.6">
+                     <b style="color: black; font-size: large;"> <?= $p['nama3'] ?> </b> 
                     </label>
                   </div>
                   <?php } ?>
-                  <?php if($b['jawaban_4'] != "") { ?>
+                  <?php if($p['jawaban4_pertanyaan2'] != "") { ?>
                   <div class="radio">
-                    <label>
-                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan']; ?>" name="jawaban[<?= $b['id_pertanyaan']; ?>]" value="0.4">
-                     <b style="color: black; font-size: large;"><?= $b['jawaban_4'] ?></b>
+                    <label for="jawaban[<?= $p['id_pertanyaan2'] ?>]">
+                      <input type="radio" class="jawaban jawaban_<?= $p['id_pertanyaan2']; ?>" name="jawaban[<?= $p['id_pertanyaan2']; ?>]" value="0.4">
+                     <b style="color: black; font-size: large;"><?= $p['nama4'] ?></b>
                     </label>
                   </div>
                   <?php } ?>
                 
                   
                                   </div>
-                    <?php } ?>
+                 
 
                                 </div>
                                    <?php } ?>
@@ -100,11 +94,11 @@
                               
                             <div class="wizard-footer">
                                 <div class="pull-right">
-                                      <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Selanjutnya' />
-                                     <a href="<?= base_url('pertanyaan2') ?>"> <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='selanjutnya' /></a> 
+                                      <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
+                                     <a href="<?= base_url('pertanyaan3') ?>"> <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' /></a> 
                                   </div>
                                   <div class="pull-left">
-                                      <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='kembali' />
+                                      <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
 
                   
                                   </div>

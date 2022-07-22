@@ -21,7 +21,7 @@
                 
                 <div class="wizard-navigation">
                   <?php 
-                    $coba = count(array_chunk($pertanyaan, 3));
+                    $coba = count(array_chunk($pertanyaan3, 3));
                   
                   ?>
                   <ul> <?php for($x=1;$x<$coba;$x++){ ?>
@@ -42,12 +42,12 @@
                 
 
                             <div class="tab-content">
-                              <?php foreach ($pertanyaan as $p ) { ?>
+                              <?php foreach ($pertanyaan3 as $p ) { ?>
                     <div class="tab-pane" id="detail-<?= $p['id_pertanyaan_grup'] ?>">
                     <?php
                     $id = $p['id_pertanyaan_grup'];
                     
-                    $query = "SELECT * FROM  `tb_pertanyaan`  WHERE `tb_pertanyaan`.`id_pertanyaan_grup` = $id";
+                    $query = "SELECT * FROM  `tb_pertanyaan3`  WHERE `tb_pertanyaan3`.`id_pertanyaan_grup` = $id";
                     $query2 = $this->db->query($query)->result_array();
                     
                   ?>
@@ -56,35 +56,35 @@
                                     <div class="col-sm-12">
                                           <h3 class="text pertanyaan_class_all" style="color: orangered;"><?php echo $b['pertanyaan'] ?></h3>
                                     </div>
-                  <?php if($b['jawaban_1'] != "") { ?>
+                  <?php if($b['jawaban_1_pertanyaan_3'] != "") { ?>
                     <div class="radio" style="color: black;">
                     <label>
-                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan']; ?>" name="jawaban[<?= $b['id_pertanyaan']; ?>]" value="1">
-                     <b  style="color: black; font-size: large;" ><?= $b['jawaban_1'] ?> </b> 
+                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan3']; ?>" name="jawaban[<?= $b['id_pertanyaan3']; ?>]" value="1">
+                     <b  style="color: black; font-size: large;" ><?= $b['jawaban_1_pertanyaan_3'] ?> </b> 
                     </label>
                   </div>
                   <?php } ?>
-                  <?php if($b['jawaban_2'] != "") { ?>
+                  <?php if($b['jawaban_2_pertanyaan3'] != "") { ?>
                   <div class="radio">
                     <label>
-                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan']; ?>" name="jawaban[<?= $b['id_pertanyaan']; ?>]" value="0.8">
-                      <b  style="color: black; font-size: large;" ><?= $b['jawaban_2'] ?></b>
+                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan3']; ?>" name="jawaban[<?= $b['id_pertanyaan3']; ?>]" value="0.8">
+                      <b  style="color: black; font-size: large;" ><?= $b['jawaban_2_pertanyaan3'] ?></b>
                     </label>
                   </div>
                   <?php } ?>
-                  <?php if($b['jawaban_3'] != "") { ?>
+                  <?php if($b['jawaban_3_pertanyaan3'] != "") { ?>
                   <div class="radio">
                     <label>
-                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan']; ?>" name="jawaban[<?= $b['id_pertanyaan']; ?>]" value="0.6">
-                     <b style="color: black; font-size: large;"> <?= $b['jawaban_3'] ?> </b> 
+                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan3']; ?>" name="jawaban[<?= $b['id_pertanyaan3']; ?>]" value="0.6">
+                     <b style="color: black; font-size: large;"> <?= $b['jawaban_3_pertanyaan3'] ?> </b> 
                     </label>
                   </div>
                   <?php } ?>
-                  <?php if($b['jawaban_4'] != "") { ?>
+                  <?php if($b['jawaban_4_pertanyaan3'] != "") { ?>
                   <div class="radio">
                     <label>
-                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan']; ?>" name="jawaban[<?= $b['id_pertanyaan']; ?>]" value="0.4">
-                     <b style="color: black; font-size: large;"><?= $b['jawaban_4'] ?></b>
+                      <input type="radio" class="jawaban jawaban_<?= $b['id_pertanyaan3']; ?>" name="jawaban[<?= $b['id_pertanyaan3']; ?>]" value="0.4">
+                     <b style="color: black; font-size: large;"><?= $b['jawaban_4_pertanyaan3'] ?></b>
                     </label>
                   </div>
                   <?php } ?>

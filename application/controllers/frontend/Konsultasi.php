@@ -10,6 +10,8 @@ class Konsultasi extends CI_Controller
         $this->load->model('konsultasi_model');
         $this->load->model('penyakit_model');
         $this->load->model('pertanyaan_model');
+         $this->load->model('pertanyaan2_model');
+         $this->load->model('pertanyaan3_model');
         $this->load->model('random_model');
        // $this->load->model('jawaban_model');
         $this->load->model('evidence_model');
@@ -95,22 +97,70 @@ class Konsultasi extends CI_Controller
         }
     
 
-    public function konsul()
+    public function konsul1()
     {
       //  $data['is_active'] = 'knsl';
         $data['title'] = "Konsultasi | Expert System ISPA";
         $data['header'] = "Konsultasi";
-        $data['detail'] = "Halaman ini adalah halaman untuk pengguna melakukan konsultasi mengenai gejala yang ditemui pada tanaman buah naga";
+        $data['detail'] = "";
         //$data['random'] = $this->random_model->getAll();
         $data['start'] = 0;
         //$data['limit'] = $this->pertanyaan_model->limit();
        $data['pertanyaan'] = $this->pertanyaan_model->getAll();
         $data['penyakit'] = $this->penyakit_model->getAll();
-        $data['penjumlah'] =10;
+        
+         
+
+        // var_dump($data['pertanyaan'][0]);die;
 
         $this->load->view('frontend/_partials/header', $data);
         $this->load->view('frontend/_partials/topbar', $data);
-        $this->load->view('frontend/deteksi/question', $data);
+        $this->load->view('frontend/deteksi/pertanyaan', $data);
+        $this->load->view('frontend/_partials/footer', $data);
+    }
+
+     public function konsul2()
+    {
+      //  $data['is_active'] = 'knsl';
+        $data['title'] = "Konsultasi | Expert System ISPA";
+        $data['header'] = "Konsultasi";
+        $data['detail'] = "";
+        //$data['random'] = $this->random_model->getAll();
+        $data['mulai'] = 0;
+        //$data['limit'] = $this->pertanyaan_model->limit();
+        $data['wajib'] = $this->pertanyaan2_model->getSemua();
+       $data['pertanyaan2'] = $this->pertanyaan2_model->getAll();
+        $data['penyakit'] = $this->penyakit_model->getAll();
+        
+         
+
+        // var_dump($data['pertanyaan'][0]);die;
+
+        $this->load->view('frontend/_partials/header', $data);
+        $this->load->view('frontend/_partials/topbar', $data);
+        $this->load->view('frontend/deteksi/pertanyaan2', $data);
+        $this->load->view('frontend/_partials/footer', $data);
+    }
+
+     public function konsul3()
+    {
+      //  $data['is_active'] = 'knsl';
+        $data['title'] = "Konsultasi | Expert System ISPA";
+        $data['header'] = "Konsultasi";
+        $data['detail'] = "";
+        //$data['random'] = $this->random_model->getAll();
+        $data['start'] = 0;
+        //$data['limit'] = $this->pertanyaan_model->limit();
+       $data['pertanyaan3'] = $this->pertanyaan3_model->getAll();
+        $data['penyakit'] = $this->penyakit_model->getAll();
+        
+         
+
+        // var_dump($data['pertanyaan'][0]);die;
+
+        $this->load->view('frontend/_partials/header', $data);
+        $this->load->view('frontend/_partials/topbar', $data);
+        $this->load->view('frontend/deteksi/pertanyaan3', $data);
         $this->load->view('frontend/_partials/footer', $data);
     }
 
