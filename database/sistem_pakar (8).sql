@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jul 2022 pada 17.54
+-- Waktu pembuatan: 22 Jul 2022 pada 13.02
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.3.29
 
@@ -76,6 +76,35 @@ CREATE TABLE `paramedis` (
   `alamat` varchar(100) NOT NULL,
   `instansi` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pertanyaan_grup`
+--
+
+CREATE TABLE `pertanyaan_grup` (
+  `id_pertanyaan_grup` int(11) NOT NULL,
+  `nama_pertanyaan_grup` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pertanyaan_grup`
+--
+
+INSERT INTO `pertanyaan_grup` (`id_pertanyaan_grup`, `nama_pertanyaan_grup`) VALUES
+(1, 'pertanyaan grup 1'),
+(2, 'pertanyaan grup 2'),
+(3, 'pertanyaan 3'),
+(4, 'pertanyaan 4'),
+(5, 'pertanyaan 5'),
+(6, 'pertanyaan 6'),
+(7, 'pertanyaan 7'),
+(8, 'pertanyaan 8'),
+(9, 'pertanyaan 9'),
+(10, 'pertanyaan 10'),
+(11, 'pertanyaan_11'),
+(12, 'pertanyaan_12');
 
 -- --------------------------------------------------------
 
@@ -196,7 +225,22 @@ INSERT INTO `tb_deteksi_pasien` (`id_deteksi_pasien`, `nama_pasien`, `usia`, `no
 (70, 'jgfsjgfsjf', 245, '323242', '2dfgerg', 'perempuan', 0, '2022-07-01 03:17:16'),
 (71, 'hfyfgf', 435, '476', 'gdhg\r\n', 'perempuan', 0, '2022-07-01 03:51:04'),
 (72, 'samsudin', 24, '08123457543', '2asfsgfdhdfg', 'Laki-laki', 0, '2022-07-03 05:29:38'),
-(73, 'sely', 23, '34325235315', 'jabar', 'perempuan', 0, '2022-07-03 06:00:39');
+(73, 'sely', 23, '34325235315', 'jabar', 'perempuan', 0, '2022-07-03 06:00:39'),
+(74, 'yudi iriyanto', 23, '0852424253625', 'jl. perikanan', 'Laki-laki', 0, '2022-07-05 16:06:28'),
+(75, 'yudi iriyanto', 23, '086765443653', 'jl.perikanan', 'Laki-laki', 0, '2022-07-06 16:26:40'),
+(76, 'yudi', 23, '32423412421', 'dgerher', 'Laki-laki', 0, '2022-07-06 18:26:56'),
+(77, 'yudi iriyanto', 23, '12314141414', '4efbebbeb', 'Laki-laki', 0, '2022-07-06 18:29:04'),
+(78, 'yudi iriyanto', 23, '21442141', 'dfbfbfb', 'Laki-laki', 0, '2022-07-06 18:56:07'),
+(79, 'yudi iriyanto', 23, '124154515155', 'ehbrebh', 'Laki-laki', 0, '2022-07-06 21:43:11'),
+(80, 'egerg', 34, '23412414', '32r31r13rgsvsrb', 'Laki-laki', 0, '2022-07-09 13:34:10'),
+(81, 'lula', 45, '645245287', 'jalan menco', 'perempuan', 0, '2022-07-15 12:11:56'),
+(82, 'bagus', 22, '051557877655', 'maesan', 'perempuan', 0, '2022-07-16 07:10:55'),
+(83, 'yani', 26, '08123129312312', 'jalan maesan bondowoso', 'perempuan', 0, '2022-07-16 07:54:50'),
+(84, 'fellian', 13, '081234587987', 'sawahan', 'Laki-laki', 0, '2022-07-18 10:24:53'),
+(85, 'febi', 23, '0812347876123', 'sahawan', 'perempuan', 0, '2022-07-19 03:09:17'),
+(86, 'nana', 23, '0831081484284', 'jhurutru', 'perempuan', 0, '2022-07-20 11:18:16'),
+(87, 'luli', 25, '081234568798', 'sawahan', 'perempuan', 0, '2022-07-22 03:36:04'),
+(88, 'njhjh', 464747474, '577686868', 'nfgndtkyjtiuje', 'perempuan', 0, '2022-07-22 06:34:26');
 
 -- --------------------------------------------------------
 
@@ -217,56 +261,82 @@ CREATE TABLE `tb_evidence` (
 --
 
 INSERT INTO `tb_evidence` (`evidence_id`, `evidence_penyakit_id`, `evidence_gejala_id`, `evidence_kode`, `evidence_nilai`) VALUES
-(5, 1, 5, 'E004', 0.6),
-(7, 1, 7, 'E006', 1),
-(21, 1, 21, 'E020', 1),
-(22, 1, 22, 'E021', 1),
-(23, 1, 23, 'E022', 0.2),
-(24, 1, 24, 'E023', 1),
-(25, 1, 25, 'E024', 1),
-(26, 1, 26, 'E025', 1),
-(27, 1, 27, 'E026', 1),
-(29, 1, 29, 'E028', 1),
-(30, 1, 30, 'E029', 1),
-(46, 1, 46, 'E045', 1),
-(47, 1, 47, 'E046', 1),
-(49, 2, 2, 'E048', 0.4),
-(51, 2, 4, 'E050', 1),
-(52, 2, 5, 'E051', 1),
-(53, 2, 6, 'E052', 1),
-(57, 2, 10, 'E056', 0.8),
-(61, 2, 14, 'E060', 0.6),
-(78, 2, 31, 'E077', 1),
-(79, 2, 32, 'E078', 1),
-(80, 2, 33, 'E079', 1),
-(81, 2, 34, 'E080', 1),
-(83, 2, 36, 'E082', 0.6),
-(84, 2, 37, 'E083', 1),
-(85, 2, 38, 'E084', 1),
-(88, 2, 41, 'E087', 1),
-(89, 2, 42, 'E088', 1),
-(90, 2, 43, 'E089', 1),
-(95, 2, 48, 'E094', 1),
-(99, 3, 5, 'E098', 1),
-(106, 3, 12, 'E105', 0.8),
-(107, 3, 13, 'E106', 0.8),
-(108, 3, 14, 'E107', 0.2),
-(109, 3, 15, 'E108', 0.2),
-(110, 3, 16, 'E109', 1),
-(111, 3, 17, 'E110', 1),
-(113, 3, 19, 'E112', 1),
-(114, 3, 20, 'E113', 1),
-(138, 3, 44, 'E137', 0.8),
-(139, 3, 45, 'E138', 0.4),
-(143, 4, 2, 'E142', 1),
-(144, 4, 3, 'E143', 0.2),
-(145, 4, 4, 'E144', 1),
-(146, 4, 5, 'E145', 1),
-(148, 4, 7, 'E147', 0.4),
-(150, 4, 9, 'E149', 1),
-(157, 4, 16, 'E156', 1),
-(180, 4, 39, 'E179', 1),
-(181, 4, 40, 'E180', 1);
+(1, 1, 1, 'E001', 0.8),
+(2, 1, 2, 'E002', 1),
+(3, 1, 3, 'E003', 1),
+(4, 1, 8, 'E004', 1),
+(5, 1, 9, 'E005', 1),
+(6, 1, 15, 'E006', 1),
+(7, 1, 16, 'E007', 0.8),
+(8, 1, 18, 'E008', 1),
+(9, 1, 19, 'E009', 1),
+(10, 1, 21, 'E010', 1),
+(11, 1, 22, 'E011', 1),
+(12, 1, 24, 'E012', 1),
+(13, 1, 28, 'E013', 1),
+(14, 1, 30, 'E014', 1),
+(15, 1, 33, 'E015', 0.2),
+(16, 1, 34, 'E016', 0.6),
+(17, 1, 39, 'E017', 1),
+(18, 1, 40, 'E018', 1),
+(19, 1, 41, 'E019', 1),
+(20, 2, 1, 'E020', 1),
+(21, 2, 2, 'E021', 1),
+(22, 2, 4, 'E022', 1),
+(23, 2, 5, 'E023', 0.6),
+(24, 2, 6, 'E024', 1),
+(25, 2, 7, 'E025', 1),
+(26, 2, 10, 'E026', 0.6),
+(27, 2, 11, 'E027', 0.8),
+(28, 2, 13, 'E028', 0.6),
+(29, 2, 14, 'E029', 1),
+(30, 2, 15, 'E030', 0.4),
+(31, 2, 18, 'E031', 1),
+(32, 2, 20, 'E032', 1),
+(33, 2, 21, 'E033', 1),
+(34, 2, 23, 'E034', 1),
+(35, 2, 25, 'E035', 0.4),
+(36, 2, 28, 'E036', 1),
+(37, 2, 31, 'E037', 1),
+(38, 2, 34, 'E038', 1),
+(39, 2, 36, 'E039', 0.4),
+(40, 2, 40, 'E040', 1),
+(41, 2, 41, 'E041', 1),
+(42, 3, 1, 'E042', 1),
+(43, 3, 5, 'E043', 0.2),
+(44, 3, 11, 'E044', 1),
+(45, 3, 12, 'E045', 1),
+(46, 3, 14, 'E046', 1),
+(47, 3, 17, 'E047', 1),
+(48, 3, 20, 'E048', 1),
+(49, 3, 23, 'E049', 1),
+(50, 3, 26, 'E050', 1),
+(51, 3, 29, 'E051', 1),
+(52, 3, 32, 'E052', 1),
+(53, 3, 36, 'E053', 0.8),
+(54, 3, 37, 'E054', 1),
+(55, 3, 38, 'E055', 1),
+(56, 3, 41, 'E056', 1),
+(57, 4, 1, 'E057', 1),
+(58, 4, 2, 'E058', 0.6),
+(59, 4, 3, 'E059', 0.6),
+(60, 4, 5, 'E060', 0.2),
+(61, 4, 10, 'E061', 0.2),
+(62, 4, 13, 'E062', 0.2),
+(63, 4, 14, 'E063', 0.2),
+(64, 4, 16, 'E064', 1),
+(65, 4, 18, 'E065', 1),
+(66, 4, 19, 'E066', 1),
+(67, 4, 21, 'E067', 1),
+(68, 4, 22, 'E068', 1),
+(69, 4, 25, 'E069', 1),
+(70, 4, 27, 'E070', 1),
+(71, 4, 28, 'E071', 0.8),
+(72, 4, 31, 'E072', 1),
+(73, 4, 34, 'E073', 1),
+(74, 4, 35, 'E074', 1),
+(75, 4, 36, 'E075', 1),
+(76, 4, 41, 'E076', 1);
 
 -- --------------------------------------------------------
 
@@ -287,53 +357,48 @@ CREATE TABLE `tb_gejala` (
 --
 
 INSERT INTO `tb_gejala` (`id_gejala`, `kode_gejala`, `nama_gejala`, `image_gejala`, `gejala_inputdate`) VALUES
-(2, 'G001', 'Batuk berdahak spuntum kehijauan atau kuning kurang dari 2 minggu', '', '0000-00-00 00:00:00'),
-(3, 'G002', 'Pilek', '', '0000-00-00 00:00:00'),
-(4, 'G003', 'Demam tinggi ', '', '0000-00-00 00:00:00'),
-(5, 'G004', 'Sesak nafas RR > 20 kali per menit', '', '0000-00-00 00:00:00'),
-(6, 'G005', 'Sakit kepala', '', '0000-00-00 00:00:00'),
-(7, 'G006', 'Batuk disertai darah ', '', '0000-00-00 00:00:00'),
-(8, 'G007', 'Nafas cepat ', '', '0000-00-00 00:00:00'),
-(9, 'G008', 'Pemeriksaan kultur sputum', '', '0000-00-00 00:00:00'),
-(10, 'G009', 'Nyeri Tenggorokan', '', '0000-00-00 00:00:00'),
-(11, 'G0010', 'Nyeri ketika menelan', '', '0000-00-00 00:00:00'),
-(12, 'G0011', 'Demam ringan kurang dari 7 hari', '', '0000-00-00 00:00:00'),
-(13, 'G0012', 'Denyut jatung cepat', '', '0000-00-00 00:00:00'),
-(14, 'G0013', 'Mual', '', '0000-00-00 00:00:00'),
-(15, 'G0014', 'Muntah', '', '0000-00-00 00:00:00'),
-(16, 'G0015', 'Menggigil', '', '0000-00-00 00:00:00'),
-(17, 'G0016', 'Pembengkakan kelenjar getah bening', '', '0000-00-00 00:00:00'),
-(18, 'G0017', 'Gangguan pernafasan', '', '0000-00-00 00:00:00'),
-(19, 'G0018', 'Terbentuk/ terdapat pseudomembran', '', '0000-00-00 00:00:00'),
-(20, 'G0019', 'Suara serak', '', '0000-00-00 00:00:00'),
-(21, 'G0020', 'Batuk terus menerus dan berdahak selama tiga minggu/ lebih', '', '0000-00-00 00:00:00'),
-(22, 'G0021', 'Demam selama tiga minggu atau lebih', '', '0000-00-00 00:00:00'),
-(23, 'G0022', 'Nyeri dada', '', '0000-00-00 00:00:00'),
-(24, 'G0023', 'Penurunan nafsu makan', '', '0000-00-00 00:00:00'),
-(25, 'G0024', 'Berat badan turun', '', '0000-00-00 00:00:00'),
-(26, 'G0025', 'Rasa kurang enak badan(malaise, lemah)', '', '0000-00-00 00:00:00'),
-(27, 'G0026', 'Berkeringat di malam hari walaupun tidak melakukan apa-apa', '', '0000-00-00 00:00:00'),
-(28, 'G0027', 'Tidak nafsu makan', '', '0000-00-00 00:00:00'),
-(29, 'G0028', 'Kontak erat dengan pasien TBC', '', '0000-00-00 00:00:00'),
-(30, 'G0029', 'Hasil Tes Dahak tcm (tes cepat molekuler)', '', '0000-00-00 00:00:00'),
-(31, 'G0030', 'Batuk kering', '', '0000-00-00 00:00:00'),
-(32, 'G0031', 'Kelelahan', '', '0000-00-00 00:00:00'),
-(33, 'G0032', 'Pernah kontak langsung dg orang yang terkena covid 19', '', '0000-00-00 00:00:00'),
-(34, 'G0033', 'Hidung tersumbat', '', '0000-00-00 00:00:00'),
-(35, 'G0034', 'Tenggorokan sakit', '', '0000-00-00 00:00:00'),
-(36, 'G0035', 'Bersin bersin', '', '0000-00-00 00:00:00'),
-(37, 'G0036', 'Anosmia', '', '0000-00-00 00:00:00'),
-(38, 'G0037', 'Tes PCR', '', '0000-00-00 00:00:00'),
-(39, 'G0038', 'bunyi nafas tambahan grok- grok', '', '0000-00-00 00:00:00'),
-(40, 'G0039', 'saturasi oksigen < 95 ', '', '0000-00-00 00:00:00'),
-(41, 'G0040', 'Gangguan perasa', '', '0000-00-00 00:00:00'),
-(42, 'G0041', 'pegel linu( myalgia)', '', '0000-00-00 00:00:00'),
-(43, 'G0042', 'bepergian dari luar kota atau luar negeri', '', '0000-00-00 00:00:00'),
-(44, 'G0043', 'terdapat bercak putih pada tonsil ', '', '0000-00-00 00:00:00'),
-(45, 'G0044', 'batuk  kurang dari 7 hari', '', '0000-00-00 00:00:00'),
-(46, 'G0045', 'memiliki riwayat penyakit hiv/ diabetes ', '', '0000-00-00 00:00:00'),
-(47, 'G0046', 'Rontgen thorax infiltrate di apex', '', '0000-00-00 00:00:00'),
-(48, 'G0047', 'Rontgen thorax infiltrate ', '', '0000-00-00 00:00:00');
+(1, 'G001', 'Bepergian ke luar kota atau luar negeri dalam kurun waktu 1 minggu', '', '2022-07-21 11:23:50'),
+(2, 'G002', 'Kelelahan atau lemes (malaise)', '', '2022-07-21 11:23:50'),
+(3, 'G003', 'Penurunan nafsu makan', '', '2022-07-21 11:32:55'),
+(4, 'G004', 'Pegal linu (myalgia)', '', '2022-07-21 11:32:55'),
+(5, 'G005', 'mual atau muntah', '', '2022-07-21 11:57:09'),
+(6, 'G006', 'gangguan perasa(tidak bisa merasakan makanan)', '', '0000-00-00 00:00:00'),
+(7, 'G007', 'anosmia(tidak bisa mencium bau)', '', '0000-00-00 00:00:00'),
+(8, 'G008', 'penurunan berat badan', '', '0000-00-00 00:00:00'),
+(9, 'G009', 'berkeringat di malam hari tanpa sebab ', '', '0000-00-00 00:00:00'),
+(10, 'G0010', 'bersin - bersin', '', '0000-00-00 00:00:00'),
+(11, 'G0011', 'nyeri tenggorokan', '', '0000-00-00 00:00:00'),
+(12, 'G0012', 'suara serak', '', '0000-00-00 00:00:00'),
+(13, 'G0013', 'pilek', '', '0000-00-00 00:00:00'),
+(14, 'G0014', 'sakit kepala', '', '0000-00-00 00:00:00'),
+(15, 'G0015A', 'batuk terus menerus', '', '0000-00-00 00:00:00'),
+(16, 'G0015B', 'batuk  sering', '', '0000-00-00 00:00:00'),
+(17, 'G0015C', 'batuk jarang', '', '0000-00-00 00:00:00'),
+(18, 'G0016A', 'batuk berdahak', '', '0000-00-00 00:00:00'),
+(19, 'G0016B', 'batuk berdarah', '', '0000-00-00 00:00:00'),
+(20, 'G0016C', 'batuk kering', '', '0000-00-00 00:00:00'),
+(21, 'G0017A', 'warna dahak kuning kehijauan', '', '0000-00-00 00:00:00'),
+(22, 'G0017B', 'warna dahak merah', '', '0000-00-00 00:00:00'),
+(23, 'G0017C', 'tidak ada warna dahak', '', '0000-00-00 00:00:00'),
+(24, 'G0018A', 'batuk lebih dari 21 hari', '', '0000-00-00 00:00:00'),
+(25, 'G0018B', 'batuk kurang dari 14 hari', '', '0000-00-00 00:00:00'),
+(26, 'G0018C', 'batuk kurang dari 7 hari', '', '0000-00-00 00:00:00'),
+(27, 'G0019A', 'demam dengan suhu lebih dari 39 derajat', '', '0000-00-00 00:00:00'),
+(28, 'G0019B', 'demam dengan suhu antara 38 sampai 39 derajat', '', '0000-00-00 00:00:00'),
+(29, 'G0019C', 'demam dengan suhu antara 37 sampai 37,9 derajat', '', '0000-00-00 00:00:00'),
+(30, 'G0020A', 'Demam selama lebih dari 21 hari ', '', '0000-00-00 00:00:00'),
+(31, 'G0020B', 'Demam selama kurang dari 14 hari', '', '0000-00-00 00:00:00'),
+(32, 'G0020C', 'Demam selama kurang dari 7 hari', '', '0000-00-00 00:00:00'),
+(33, 'G0021', 'nyeri dada', '', '0000-00-00 00:00:00'),
+(34, 'G0022', 'sesak nafas', '', '0000-00-00 00:00:00'),
+(35, 'G0023', 'bunyi nafas tambahan (grok grok)', '', '0000-00-00 00:00:00'),
+(36, 'G0024', 'denyut jantung cepat', '', '0000-00-00 00:00:00'),
+(37, 'G0025', 'bercak putih atau keabuan pada tonsil', '', '0000-00-00 00:00:00'),
+(38, 'G0026', 'benjolan pada leher belakang ', '', '0000-00-00 00:00:00'),
+(39, 'G0027', 'memiliki riwayat hiv', '', '0000-00-00 00:00:00'),
+(40, 'G0028', 'memiliki riwayat penyakit bawaan (diabetes, jantung koroner, darah tinggi, asma, ginjal, kanker )', '', '0000-00-00 00:00:00'),
+(41, 'G0029', 'pernah kontak langsung dengan pasien TBC, Covid 19, Difteri dan Pneumonia', '', '0000-00-00 00:00:00'),
+(42, 'G0030', 'tidak mengalami gejala ', '', '2022-07-21 15:33:49');
 
 -- --------------------------------------------------------
 
@@ -1408,61 +1473,100 @@ INSERT INTO `tb_penyakit` (`id_penyakit`, `kode_penyakit`, `nama_penyakit`, `pen
 CREATE TABLE `tb_pertanyaan` (
   `id_pertanyaan` int(11) NOT NULL,
   `id_gejala_pertanyaan` int(11) NOT NULL,
+  `id_pertanyaan_grup` int(11) NOT NULL,
   `pertanyaan` varchar(255) NOT NULL,
   `jawaban_1` varchar(255) NOT NULL,
   `jawaban_2` varchar(255) NOT NULL,
   `jawaban_3` varchar(255) NOT NULL,
-  `jawaban_4` varchar(255) NOT NULL,
-  `jawaban_5` varchar(255) NOT NULL,
-  `jawaban_6` varchar(255) NOT NULL
+  `jawaban_4` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_pertanyaan`
 --
 
-INSERT INTO `tb_pertanyaan` (`id_pertanyaan`, `id_gejala_pertanyaan`, `pertanyaan`, `jawaban_1`, `jawaban_2`, `jawaban_3`, `jawaban_4`, `jawaban_5`, `jawaban_6`) VALUES
-(1, 2, 'Apakah anda merasakan batuk berdahak dengan warna sputum dahak kehijauan atau kuning? Berapa lama anda mengalaminya?', 'saya sangat yakin mengalalami batuk berdahak dengan warna sputum kehijauan atau kuning dengan lama kurang dari 14 hari', 'iya, saya merasakan batuk berdahak dengan warna sputum kehijauan atau kuning dengan lama kurang dari 10 hari', 'iya , saya cukup yakin mengalami batuk berdahak dengan warna sputum kehijauan atau kuning dengan lama kurang dari 7 hari', 'saya sedikit yakin mengalami batuk berdahak dengan warna sputum kehijauan dengan lama kurang dari 5 hari ', 'saya kurang yakin merasakan batuk berdahak dengan warna sputum kehijauan atau kuning dengan lama kurang dari 3 hari', 'saya tidak merasakan gejala batuk berdahak '),
-(2, 3, 'Apakah anda mengalami gejala pilek ?', 'iya saya sangat yakin bahwa saya mengalami gejala pilek', 'iya saya yakin mengalami pilek', 'iya , saya cukup yakin mengalami pilek', 'saya sepertinya sedikit yakin mengalami gejala pilek', 'saya kurang yakin mengalami pilek', 'saya tidak mengalami pilek'),
-(3, 4, 'saya mengalami demam dengan suhu 39-41 derajat dengan lama kurang dari 2 minggu', 'saya mengalami demam dengan suhu 38-38,9 derajat dengan lama kurang dari 12 hari', 'saya mengalami demam dengan suhu 37,6 sampai 37,9 dengan lama kurang dari 10 hari', 'saya mengalami demam dengan suhu 37 sampai 37,5 dengan lama kurang dari 7 hari', 'saya mengalami demam dengan suhu 36,6 sampi 36,9 derajat dengan lama kurang dari 5 hari', 'saya mengalami demam dengan suhu 36- 36,5 derajat dengan lama kurang dari 3 hari', 'saya tidak mengalami demam '),
-(4, 5, 'Apakakah anda mengalami sesak nafas? *hitunglah RR dengan menghitung berapa kali anda bernafas dalam satu menit, jika lebih dari 20 kali maka anda mengalami sesak nafas', 'iya,Saya yakin mengalami sesak nafas dengan RR > 20 kali', 'iya,saya yakin mengalami sesak nafas dengan RR > 20 kali', 'iya, saya cukup yakin mengalami sesak nafas dengan RR > 20 kali', 'iya, saya sedikit yakin mengalami sesak nafas dengan RR > 20 kali', 'iya, saya kurang yakin mengalami sesak nafas dengan RR > 20 kali', 'saya tidak mengalami sesak nafas dengan RR > 20 kali'),
-(5, 6, 'Apakah anda merasakan gejala sakit kepala?', 'iya, saya sangat yakin merasakan sakit kepala', 'iya saya merasakan sakit kepala', 'saya sepertinya merasakan sakit kepala', 'saya sedikit merasakan sakit kepala', 'saya mungkin merasakan sakit kepala', 'saya tidak merasakan sakit kepala'),
-(6, 7, 'apakah anda mengalami batuk berdarah hingga kurang dari 2 minggu?', 'iya saya sangat yakin mengalami batuk berdarah selama kurang dari 2 minggu', 'iya saya mengalami batuk berdarah selama kurang dari 12 hari', 'saya sepertinya mengalami batuk berdarah selama kurang dari 10 hari', 'saya sedikit mengalami batuk berdarah selama kurang dari 7 hari', 'saya mungkin mengalami batuk berdarah selama kurang dari 3 hari', 'saya tidak mengalami batuk berdarah'),
-(8, 9, 'apakah anda pernah melakukan pemeriksaan kultur sputum ? ', 'positif', '', '', '', '', 'negatif'),
-(9, 10, 'Apakah anda mengalami gejala nyeri tenggorokan?', 'iya, saya sangat yakin merasakan nyeri tenggorokan', 'iya, saya  merasakan nyeri tenggorokan', 'iya , saya sepertinya  merasakan nyeri tenggorokan', 'saya sedikit  merasakan nyeri tenggorokan', 'saya kurang yakin  merasakan nyeri tenggorokan', 'saya tidak  merasakan nyeri tenggorokan'),
-(11, 12, 'Apakah anda mengalami demam ringan  ?', 'saya sangat yakin mengalami demam ringan 36-37,6 derajat selama  6-7hari ', 'saya mengalami demam ringan 36-37,6 derajat selama 4-5 hari ', 'saya sepertinya mengalami demam ringan 36-37,6 derajat selama 3-4 hari ', 'saya sedikit mengalami demam ringan 36-37,6 derajat selama 2-3 hari ', 'saya mengalami demam ringan 36-37,6 derajat selama 1 hari', 'saya tidak mengalami demam'),
-(12, 13, 'Apakah denyut jantung anda terasa cepat?', 'iya saya sangat merasa denyut jantung saya cepat', 'iya saya merasa denyut jantung saya cepat', 'iya saya sepertinya merasa denyut jantung saya cepat', 'saya sedikit merasa denyut jantung saya cepat', 'saya kurang yakin merasa denyut jantung saya cepat', 'saya tidak merasa denyut jantung saya cepat'),
-(13, 14, 'apakah anda merasakan mual ?', 'iya saya sangat merasa mual ', 'saya mengalami mual', 'saya sepertinya mengalami mual ', 'saya sedikit merasa mual', 'saya kurang yakin merasa mual', 'saya tidak mesarakan mual'),
-(14, 15, 'apakah anda mengalami muntah ?', 'iya saya sangat yakin mengalami muntah ', 'saya mengalami muntah', 'saya sepertinya mengalami muntah', 'saya sedikit merasa muntah ', 'saya kurang yakin mengalami muntah', 'saya tidak mengalami muntah'),
-(15, 16, 'Apakah anda mengalami menggigil?', 'iya saya sangat menggigil', 'saya merasa menggigil', 'saya seperti menggigil', 'iya saya sedikit menggigil', 'saya kurang merasa menggigil', 'saya tidak menggigil'),
-(18, 19, 'apakah terbentuk pseudomembran pada tonsil? ', 'iya saya sangat yakin terdapat pseudomembran pada tonsil ', 'iya saya yakin terdapat pseudomembran pada tonsil ', 'iya sepertinya terdapat pseudomembran pada tonsil ', 'saya sedikit yakin bahwa terdapat pseudomembran pada tonsil ', 'saya kurang yakin bahwa terdapat pseudomembran pada tonsil ', 'tidak terdapat pseudomembran pada tonsil '),
-(19, 20, 'apakah suara anda serak?', 'iya saya sangat merasa suara saya serak', 'saya merasa suara saya serak', 'saya sepertinya merasa suara saya serak', 'saya sedikit merasa suara saya serak', 'iya saya kurang merasa suara saya serak', 'saya tidak merasa suara saya serak'),
-(20, 21, 'berapa lama anda merasakan batuk berdahak secara terus menerus ?', 'saya merasakan batuk secara terus menerus lebih dari 1 bulan', 'saya merasakan batuk berdahak secara terus menerus selama lebih dari 3 minggu ', 'saya mengalami batuk berdahak secara terus menerus kurang lebih 3 minggu ', 'saya sedikit merasakan batuk berdahak terus menerus selama lebih dari 2 minggu', 'saya merasakan batuk berdahak selama 2 minggu ', 'saya tidak merasa batuk berdahak'),
-(21, 22, 'apakah anda mengalami demam selama lebih dari 3 minggu ?', 'saya sangat yakin mengalami demam selama lebih dari 3 minggu', 'saya yakin mengalami demam selama lebih dari 3 minggu', 'saya sepertiya yakin mengalami demam selama lebih dari 3 minggu', 'saya sedikit mengalami demam selama lebih dari 3 minggu', 'saya kurang yakin mengalami demam selama lebih dari 3 minggu', 'saya tidak mengalami demam selama lebih dari 3 minggu'),
-(22, 23, 'apakah ada merasakan nyeri dada?', 'saya sangat yakin  merasakan nyeri dada', 'saya yakin  merasakan nyeri dada', 'saya sepertiya yakin  merasakan nyeri dada', 'saya sedikit  merasakan nyeri dada', 'saya kurang yakin  merasakan nyeri dada', 'saya tidak  merasakan nyeri dada'),
-(23, 24, 'apakah anda mengalami penurunan nafsu makan?', 'saya sangat yakin mengalami penurunan nafsu makan', 'saya yakin mengalami penurunan nafsu makan', 'saya sepertinya yakin mengalami penurunan nafsu makan', 'saya sedikit yakin mengalami penurunan nafsu makan', 'saya kurang yakin mengalami penurunan nafsu makan', 'saya tidak mengalami penurunan nafsu makan'),
-(24, 25, 'apakah berat badan anda mengalami penurunan?', 'saya sangat yakin berat badan anda mengalami penurunan', 'saya yakin berat badan anda mengalami penurunan', 'saya sepertinya yakin berat badan anda mengalami penurunan', 'saya sedikit yakin berat badan anda mengalami penurunan', 'saya kurang yakin berat badan anda mengalami penurunan', 'saya tidak berat badan anda mengalami penurunan'),
-(25, 26, 'apakah anda merasa kurang enak badan? (malaise, lemah)', 'saya sangat yakin merasa kurang enak badan (malaise, lemah)', 'saya yakin merasa kurang enak badan (malaise, lemah)', 'saya sepertinya yakin merasa kurang enak badan (malaise, lemah)', 'saya sedikit yakin merasa kurang enak badan (malaise, lemah)', 'saya kurang yakin merasa kurang enak badan (malaise, lemah)', 'saya tidak merasa kurang enak badan (malaise, lemah)'),
-(26, 27, 'apakah anda berkeringat malam meskipun tidak melakukan apa apa ?', 'saya sangat yakin berkeringat malam meskipun tidak melakukan apa apa', 'saya yakin berkeringat malam meskipun tidak melakukan apa apa', 'saya sepertiya yakin berkeringat malam meskipun tidak melakukan apa apa', 'saya sedikit berkeringat malam meskipun tidak melakukan apa apa', 'saya kurang merasa berkeringat malam meskipun tidak melakukan apa apa', 'saya tidak berkeringat malam meskipun tidak melakukan apa apa'),
-(28, 29, 'apakah anda pernah kontak erat dengan pasien penderita TBC?', 'saya sangat yakin  pernah kontak erat dengan pasien penderita TBC', 'saya yakin  pernah kontak erat dengan pasien penderita TBC', 'saya sepertinya yakin  pernah kontak erat dengan pasien penderita TBC', 'saya sedikit yakin  pernah kontak erat dengan pasien penderita TBC', 'saya kurang yakin  pernah kontak erat dengan pasien penderita TBC', 'saya tidak  pernah kontak erat dengan pasien penderita TBC'),
-(29, 30, 'bagaimana hasil tes TCM anda ? *jika ada', 'positif', '', '', '', '', 'negatif'),
-(30, 31, 'apakah anda mengalami gejala batuk kering?', 'saya sangat yakin mengalami gejala batuk kering', 'saya yakin mengalami gejala batuk kering', 'saya sepertinya yakin mengalami gejala batuk kering', 'saya sedikit yakin mengalami gejala batuk kering', 'saya kurang yakin mengalami gejala batuk kering', 'saya tidak mengalami gejala batuk kering'),
-(31, 32, 'apakah anda merasa kelelahan?', 'saya sangat yakin merasa kelelahan', 'saya yakin merasa kelelahan', 'saya sepertinya yakin merasa kelelahan', 'saya sedikit merasa kelelahan', 'saya kurang merasa kelelahan', 'saya tidak merasa kelelahan'),
-(32, 33, 'apakah anda pernah kontak langsung dengan orang yang terkena covid-19?', 'saya sangat yakin  pernah kontak langsung dengan orang yang terkena covid-19', 'saya yakin  pernah kontak langsung dengan orang yang terkena covid-19', 'saya sepertinya yakin  pernah kontak langsung dengan orang yang terkena covid-19', 'saya sedikit yakin  pernah kontak langsung dengan orang yang terkena covid-19', 'saya kurang yakin  pernah kontak langsung dengan orang yang terkena covid-19', 'saya tidak  pernah kontak langsung dengan orang yang terkena covid-19'),
-(33, 34, 'Apakah anda merasakan hidung tersumbat?', 'saya sangat yakin  merasakan hidung tersumbat', 'saya yakin  merasakan hidung tersumbat', 'saya sepertinya yakin  merasakan hidung tersumbat', 'saya sedikit yakin  merasakan hidung tersumbat', 'saya kurang yakin  merasakan hidung tersumbat', 'saya tidak  merasakan hidung tersumbat'),
-(35, 36, 'apakah anda mengalami bersin bersin?', 'iya, saya sangat yakin mengalami bersin-bersin', 'saya yakin mengalami bersin-bersin', 'saya sepertinya yakin mengalami bersin-bersin', 'saya sedikit yakin mengalami bersin-bersin', 'saya kurang yakin mengalami bersin-bersin', 'saya tidak mengalami bersin-bersin'),
-(36, 37, 'apakah anda mengalami hilangnya penciuman atau anosmia?', 'saya sangat yakin mengalami hilangnya penciuman atau anosmia', 'saya yakin mengalami hilangnya penciuman atau anosmia', 'saya sepertinya yakin mengalami hilangnya penciuman atau anosmia', 'saya sedikit yakin mengalami hilangnya penciuman atau anosmia', 'saya kurang yakin mengalami hilangnya penciuman atau anosmia', 'saya tidak mengalami hilangnya penciuman atau anosmia'),
-(37, 38, 'bagaimana hasil tes PCR yang anda lakukan?*jika ada ', 'positif', '', '', '', '', 'negatif'),
-(38, 39, 'apakah anda merasa ada bunyi nafas tambahan grok grok?', 'saya sangat yakin merasa ada bunyi nafas tambahan grok grok', 'saya yakin merasa ada bunyi nafas tambahan grok grok', 'saya sepertinya yakin merasa ada bunyi nafas tambahan grok grok', 'saya sedikit yakin merasa ada bunyi nafas tambahan grok grok', 'saya kurang yakin merasa ada bunyi nafas tambahan grok grok', 'saya tidak merasa ada bunyi nafas tambahan grok grok'),
-(39, 40, 'apakah saturasi oksigen anda < 95? ', 'saya sangat yakin saturasi oksigen anda < 95', 'saya yakin saturasi oksigen anda < 95', 'saya sepertinya yakin saturasi oksigen anda < 95', 'saya sedikit yakin saturasi oksigen anda < 95', 'saya kurang yakin saturasi oksigen anda < 95', 'saya tidak saturasi oksigen anda < 95'),
-(40, 41, 'apakah anda mengalami gangguan perasa?', 'saya sangat yakin mengalami gangguan perasa', 'saya yakin mengalami gangguan perasa', 'saya sepertinya yakin mengalami gangguan perasa', 'saya sedikit yakin mengalami gangguan perasa', 'saya kurang yakin mengalami gangguan perasa', 'saya tidak mengalami gangguan perasa'),
-(41, 42, 'apakah anda merasa pegel linu?', 'saya sangat yakin merasa pegel linu', 'saya yakin merasa pegel linu', 'saya sepertinya yakin merasa pegel linu', 'saya sedikit yakin merasa pegel linu', 'saya kurang yakin merasa pegel linu', 'saya tidak merasa pegel linu'),
-(42, 43, 'apakah dalam waktu dekat anda telah bepergian dari luar kota atau luar negeri?', 'saya sangat yakin dalam waktu dekat telah bepergian dari luar kota atau luar negeri', 'saya yakin  dalam waktu dekat telah bepergian dari luar kota atau luar negeri', 'saya sepertinya yakin  dalam waktu dekat telah bepergian dari luar kota atau luar negeri', 'saya sedikit yakin  dalam waktu dekat telah bepergian dari luar kota atau luar negeri', 'saya kurang yakin  dalam waktu dekat telah bepergian dari luar kota atau luar negeri', 'saya tidak  dalam waktu dekat telah bepergian dari luar kota atau luar negeri'),
-(43, 44, 'apakah terdapat bercak putih pada tonsil?', 'saya sangat yakin  terdapat bercak putih pada tonsil', 'saya yakin  terdapat bercak putih pada tonsil', 'saya sepertinya yakin  terdapat bercak putih pada tonsil', 'saya sedikit yakin  terdapat bercak putih pada tonsil', 'saya kurang yakin  terdapat bercak putih pada tonsil', 'saya tidak  terdapat bercak putih pada tonsil'),
-(44, 45, 'apakah anda merasa batuk kurang dari 7 hari ?', 'saya sangat yakin  merasa batuk kurang dari 7 hari', 'saya yakin  merasa batuk kurang dari 7 hari', 'saya sepertinya yakin  merasa batuk kurang dari 7 hari', 'saya sedikit yakin  merasa batuk kurang dari 7 hari', 'saya kurang yakin  merasa batuk kurang dari 7 hari', 'saya tidak  merasa batuk kurang dari 7 hari'),
-(45, 46, 'apakah anda memiliki riwayat penyakit hiv/ diabetes?', 'saya sangat yakin  memiliki riwayat penyakit hiv/ diabetes', 'saya yakin  memiliki riwayat penyakit hiv/ diabetes', 'saya sepertinya yakin  memiliki riwayat penyakit hiv/ diabetes', 'saya sedikit yakin  memiliki riwayat penyakit hiv/ diabetes', 'saya kurang yakin  memiliki riwayat penyakit hiv/ diabetes', 'saya tidak  memiliki riwayat penyakit hiv/ diabetes'),
-(46, 47, 'bagaimana hasil pemeriksaan rontgen thorax infiltrate di apex yang telah anda lakukan? *jika ada', 'positif', '', '', '', '', 'negatif'),
-(47, 48, 'bagaimana hasil pemeriksaan rontgen thorax infiltrate yang telah anda lakukan?* jika ada', 'positif', '', '', '', '', 'negatif');
+INSERT INTO `tb_pertanyaan` (`id_pertanyaan`, `id_gejala_pertanyaan`, `id_pertanyaan_grup`, `pertanyaan`, `jawaban_1`, `jawaban_2`, `jawaban_3`, `jawaban_4`) VALUES
+(1, 1, 1, 'Apakah dalam kurun waktu kurang dari 1 minggu anda bepergian ke luar kota / luar negeri ?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(2, 2, 1, 'Apakah tubuh anda mengalami kelelahan atau lemas (malaise) ?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(3, 3, 1, 'Apakah anda mengalami penurunan nafsu makan? ', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(4, 4, 2, 'Apakah tubuh anda mengalami pegal linu(myalgia)?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(5, 5, 2, 'Apakah anda mengalami mual atau muntah ?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(6, 6, 2, 'Apakah anda mengalami gangguan perasa ( tidak bisa merasakan makanan)?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(7, 7, 3, 'Apakah anda mengalami anosmia (tidak bisa mencium bau)?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(8, 8, 3, 'Apakah anda mengalami penurunan berat badan ?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(9, 9, 3, 'Apakah anda sering berkeringat tanpa sebab pada malam hari?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(10, 10, 4, 'Apakah anda mengalami bersin - bersin?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(11, 11, 4, 'Apakah anda mengalami nyeri pada tenggorokan?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(12, 12, 4, 'Apakah suara anda berubah menjadi serak ?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(13, 13, 5, 'Apakah anda mengalami pilek ?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(14, 14, 5, 'Apakah anda mengalami sakit kepala ?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_pertanyaan2`
+--
+
+CREATE TABLE `tb_pertanyaan2` (
+  `id_pertanyaan2` int(11) NOT NULL,
+  `id_pertanyaan_grup2` int(11) NOT NULL,
+  `pertanyaan` varchar(100) NOT NULL,
+  `jawaban1_pertanyaan2` int(11) NOT NULL,
+  `jawaban2_pertanyaan2` int(11) NOT NULL,
+  `jawaban3_pertanyaan2` int(11) NOT NULL,
+  `jawaban4_pertanyaan2` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_pertanyaan2`
+--
+
+INSERT INTO `tb_pertanyaan2` (`id_pertanyaan2`, `id_pertanyaan_grup2`, `pertanyaan`, `jawaban1_pertanyaan2`, `jawaban2_pertanyaan2`, `jawaban3_pertanyaan2`, `jawaban4_pertanyaan2`) VALUES
+(1, 1, 'Berapa frekuensi batuk yang anda alami ?', 15, 16, 17, 42),
+(2, 1, 'Jenis batuk apa yang anda alami?', 18, 19, 20, 42);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_pertanyaan3`
+--
+
+CREATE TABLE `tb_pertanyaan3` (
+  `id_pertanyaan3` int(11) NOT NULL,
+  `id_gejala_pertanyaan3` int(11) NOT NULL,
+  `id_pertanyaan_grup` int(11) NOT NULL,
+  `pertanyaan` varchar(255) NOT NULL,
+  `jawaban_1_pertanyaan_3` varchar(50) NOT NULL,
+  `jawaban_2_pertanyaan3` varchar(50) NOT NULL,
+  `jawaban_3_pertanyaan3` varchar(50) NOT NULL,
+  `jawaban_4_pertanyaan3` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_pertanyaan3`
+--
+
+INSERT INTO `tb_pertanyaan3` (`id_pertanyaan3`, `id_gejala_pertanyaan3`, `id_pertanyaan_grup`, `pertanyaan`, `jawaban_1_pertanyaan_3`, `jawaban_2_pertanyaan3`, `jawaban_3_pertanyaan3`, `jawaban_4_pertanyaan3`) VALUES
+(1, 21, 5, 'fghdhtdgh?', 'hfhf', 'dgdg', 'hfdhd', 'gdgfg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_pertanyaan_grub_2`
+--
+
+CREATE TABLE `tb_pertanyaan_grub_2` (
+  `id` int(11) NOT NULL,
+  `grub` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_pertanyaan_grub_2`
+--
+
+INSERT INTO `tb_pertanyaan_grub_2` (`id`, `grub`) VALUES
+(1, 'grub1'),
+(2, 'grub2');
 
 -- --------------------------------------------------------
 
@@ -1515,6 +1619,12 @@ ALTER TABLE `hasil`
 --
 ALTER TABLE `paramedis`
   ADD PRIMARY KEY (`id_paramedis`);
+
+--
+-- Indeks untuk tabel `pertanyaan_grup`
+--
+ALTER TABLE `pertanyaan_grup`
+  ADD PRIMARY KEY (`id_pertanyaan_grup`);
 
 --
 -- Indeks untuk tabel `tb_artikel`
@@ -1577,6 +1687,24 @@ ALTER TABLE `tb_pertanyaan`
   ADD PRIMARY KEY (`id_pertanyaan`);
 
 --
+-- Indeks untuk tabel `tb_pertanyaan2`
+--
+ALTER TABLE `tb_pertanyaan2`
+  ADD PRIMARY KEY (`id_pertanyaan2`);
+
+--
+-- Indeks untuk tabel `tb_pertanyaan3`
+--
+ALTER TABLE `tb_pertanyaan3`
+  ADD PRIMARY KEY (`id_pertanyaan3`);
+
+--
+-- Indeks untuk tabel `tb_pertanyaan_grub_2`
+--
+ALTER TABLE `tb_pertanyaan_grub_2`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `tb_rekomendasi`
 --
 ALTER TABLE `tb_rekomendasi`
@@ -1599,6 +1727,12 @@ ALTER TABLE `hasil`
   MODIFY `id_hasil` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=334;
 
 --
+-- AUTO_INCREMENT untuk tabel `pertanyaan_grup`
+--
+ALTER TABLE `pertanyaan_grup`
+  MODIFY `id_pertanyaan_grup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_artikel`
 --
 ALTER TABLE `tb_artikel`
@@ -1608,19 +1742,19 @@ ALTER TABLE `tb_artikel`
 -- AUTO_INCREMENT untuk tabel `tb_deteksi_pasien`
 --
 ALTER TABLE `tb_deteksi_pasien`
-  MODIFY `id_deteksi_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id_deteksi_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_evidence`
 --
 ALTER TABLE `tb_evidence`
-  MODIFY `evidence_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
+  MODIFY `evidence_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_gejala`
 --
 ALTER TABLE `tb_gejala`
-  MODIFY `id_gejala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_gejala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_hasilkonsultasi`
@@ -1644,7 +1778,25 @@ ALTER TABLE `tb_penyakit`
 -- AUTO_INCREMENT untuk tabel `tb_pertanyaan`
 --
 ALTER TABLE `tb_pertanyaan`
-  MODIFY `id_pertanyaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_pertanyaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_pertanyaan2`
+--
+ALTER TABLE `tb_pertanyaan2`
+  MODIFY `id_pertanyaan2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_pertanyaan3`
+--
+ALTER TABLE `tb_pertanyaan3`
+  MODIFY `id_pertanyaan3` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_pertanyaan_grub_2`
+--
+ALTER TABLE `tb_pertanyaan_grub_2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`
