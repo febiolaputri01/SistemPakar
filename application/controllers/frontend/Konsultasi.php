@@ -10,12 +10,12 @@ class Konsultasi extends CI_Controller
         $this->load->model('konsultasi_model');
         $this->load->model('penyakit_model');
         $this->load->model('pertanyaan_model');
-         $this->load->model('pertanyaan2_model');
-         $this->load->model('pertanyaan3_model');
+        $this->load->model('pertanyaan2_model');
+        $this->load->model('pertanyaan3_model');
         $this->load->model('random_model');
-       // $this->load->model('jawaban_model');
+        // $this->load->model('jawaban_model');
         $this->load->model('evidence_model');
-       // $this->load->model('hitung_model');
+        // $this->load->model('hitung_model');
         //$this->load->model('solusi_model');
     }
 
@@ -49,7 +49,7 @@ class Konsultasi extends CI_Controller
 
     public function konfirmasi()
     {
-       // $data['is_active'] = 'knsl';
+        // $data['is_active'] = 'knsl';
         $data['title'] = "Deteksi Dini | Expert System ISPA";
         $data['header'] = "Deteksi";
         $data['detail'] = "Halaman ini adalah halaman untuk pengguna melakukan konsultasi";
@@ -57,59 +57,59 @@ class Konsultasi extends CI_Controller
         $data['wajib'] = $this->pertanyaan_model->get();
         //$data['umum'] = $this->pertanyaan_model->getRandom();
 
-         $this->load->view('frontend/_partials/header', $data);
+        $this->load->view('frontend/_partials/header', $data);
         $this->load->view('frontend/_partials/topbar', $data);
         $this->load->view('frontend/deteksi/konfirmasi', $data);
         $this->load->view('frontend/_partials/footer', $data);
-	
+
         // $this->form_validation->set_rules('konsul-id', 'ID Konsultasi', 'required', [
         //     'required' => 'ID Konsultasi tidak boleh kosong'
         // ]);
 
         // if ($this->form_validation->run() == FALSE) {
-           
+
         // } else {
-            // $result = array();
-            // foreach ($_POST['id_per'] as $key => $val) {
-				
-            //     $result[] = array(
-            //         'random_id_deteksi_pasien' => $_POST['konsul-id'],
-            //         'random_id_pertanyaan' => $_POST['id_per'][$key],
-            //         'random_pertanyaan' => $_POST['pertanyaan'][$key],
-            //         'random_jawaban_1' => $_POST['o1'][$key],
-            //         'random_jawaban_2' => $_POST['o2'][$key],
-            //         'random_jawaban_3' => $_POST['o3'][$key],
-            //         'random_jawaban_4' => $_POST['o4'][$key],
-            //         'random_jawaban_5' => $_POST['o5'][$key],
-            //         'random_jawaban_6' => $_POST['o6'][$key],
-            //         'random_kode' => uniqid()
-            //     );
-            // }
-			
-            // $query = $this->db->get('tmp_random');
-            // if ($query->num_rows() >= 1) {
-            //     $this->db->truncate('tmp_random');
-            //     $this->db->insert_batch('tmp_random', $result);
-            //     redirect('pertanyaan');
-                // $this->db->insert_batch('tmp_random', $result);
-            //      redirect('pertanyaan');
-            // }
-        }
-    
+        // $result = array();
+        // foreach ($_POST['id_per'] as $key => $val) {
+
+        //     $result[] = array(
+        //         'random_id_deteksi_pasien' => $_POST['konsul-id'],
+        //         'random_id_pertanyaan' => $_POST['id_per'][$key],
+        //         'random_pertanyaan' => $_POST['pertanyaan'][$key],
+        //         'random_jawaban_1' => $_POST['o1'][$key],
+        //         'random_jawaban_2' => $_POST['o2'][$key],
+        //         'random_jawaban_3' => $_POST['o3'][$key],
+        //         'random_jawaban_4' => $_POST['o4'][$key],
+        //         'random_jawaban_5' => $_POST['o5'][$key],
+        //         'random_jawaban_6' => $_POST['o6'][$key],
+        //         'random_kode' => uniqid()
+        //     );
+        // }
+
+        // $query = $this->db->get('tmp_random');
+        // if ($query->num_rows() >= 1) {
+        //     $this->db->truncate('tmp_random');
+        //     $this->db->insert_batch('tmp_random', $result);
+        //     redirect('pertanyaan');
+        // $this->db->insert_batch('tmp_random', $result);
+        //      redirect('pertanyaan');
+        // }
+    }
+
 
     public function konsul1()
     {
-      //  $data['is_active'] = 'knsl';
+        //  $data['is_active'] = 'knsl';
         $data['title'] = "Konsultasi | Expert System ISPA";
         $data['header'] = "Konsultasi";
         $data['detail'] = "";
         //$data['random'] = $this->random_model->getAll();
         $data['start'] = 0;
         //$data['limit'] = $this->pertanyaan_model->limit();
-       $data['pertanyaan'] = $this->pertanyaan_model->getAll();
+        $data['pertanyaan'] = $this->pertanyaan_model->getAll();
         $data['penyakit'] = $this->penyakit_model->getAll();
-        
-         
+
+
 
         // var_dump($data['pertanyaan'][0]);die;
 
@@ -119,9 +119,9 @@ class Konsultasi extends CI_Controller
         $this->load->view('frontend/_partials/footer', $data);
     }
 
-     public function konsul2()
+    public function konsul2()
     {
-      //  $data['is_active'] = 'knsl';
+        //  $data['is_active'] = 'knsl';
         $data['title'] = "Konsultasi | Expert System ISPA";
         $data['header'] = "Konsultasi";
         $data['detail'] = "";
@@ -129,10 +129,10 @@ class Konsultasi extends CI_Controller
         $data['mulai'] = 0;
         //$data['limit'] = $this->pertanyaan_model->limit();
         $data['wajib'] = $this->pertanyaan2_model->getSemua();
-       $data['pertanyaan2'] = $this->pertanyaan2_model->getAll();
+        $data['pertanyaan2'] = $this->pertanyaan2_model->getAll();
         $data['penyakit'] = $this->penyakit_model->getAll();
-        
-         
+
+
 
         // var_dump($data['pertanyaan'][0]);die;
 
@@ -142,19 +142,19 @@ class Konsultasi extends CI_Controller
         $this->load->view('frontend/_partials/footer', $data);
     }
 
-     public function konsul3()
+    public function konsul3()
     {
-      //  $data['is_active'] = 'knsl';
+        //  $data['is_active'] = 'knsl';
         $data['title'] = "Konsultasi | Expert System ISPA";
         $data['header'] = "Konsultasi";
         $data['detail'] = "";
         //$data['random'] = $this->random_model->getAll();
         $data['start'] = 0;
         //$data['limit'] = $this->pertanyaan_model->limit();
-       $data['pertanyaan3'] = $this->pertanyaan3_model->getAll();
+        $data['pertanyaan3'] = $this->pertanyaan3_model->getAll();
         $data['penyakit'] = $this->penyakit_model->getAll();
-        
-         
+
+
 
         // var_dump($data['pertanyaan'][0]);die;
 
@@ -167,55 +167,54 @@ class Konsultasi extends CI_Controller
     public function act()
     {
         $this->db->truncate('tmp_hitung');
-        for ($i=1; $i <= $_POST['jumlah']; $i++) { 
+        for ($i = 1; $i <= $_POST['jumlah']; $i++) {
             $data = [
-                'hitung_id_gejala' => $_POST['idgejala'.($i)],
-                'hitung_id_pertanyaan' => $_POST['pertanyaan'.($i)],
-                'hitung_nilai' => $_POST['idtanya'.($i)]
+                'hitung_id_gejala' => $_POST['idgejala' . ($i)],
+                'hitung_id_pertanyaan' => $_POST['pertanyaan' . ($i)],
+                'hitung_nilai' => $_POST['idtanya' . ($i)]
             ];
             $this->db->insert('tmp_hitung', $data);
-            
-            $evidence[$i] = $this->db->get_where('tb_evidence',['evidence_gejala_id'=>$_POST['idgejala'.($i)]])->result_array();
+
+            $evidence[$i] = $this->db->get_where('tb_evidence', ['evidence_gejala_id' => $_POST['idgejala' . ($i)]])->result_array();
             $n = 1;
             foreach ($evidence[$i] as $nilai) {
                 $rule1[$i][$n] = $nilai['evidence_nilai'] * $_POST['idtanya' . ($i)];
                 $n++;
             }
         };
-	
+
         $total = $this->random_model->countPertanyaan();
-        for ($a = 1; $a <= 4; $a++){
-            for($b = 1; $b <= $total; $b++){
-            if(isset($rule1[$b][$a]) and isset($rule1[$b+1][$a])){
-                $rule2[$a] = $rule1[$b][$a] + ($rule1[$b+1][$a]*(1-$rule1[$b][$a]));
+        for ($a = 1; $a <= 4; $a++) {
+            for ($b = 1; $b <= $total; $b++) {
+                if (isset($rule1[$b][$a]) and isset($rule1[$b + 1][$a])) {
+                    $rule2[$a] = $rule1[$b][$a] + ($rule1[$b + 1][$a] * (1 - $rule1[$b][$a]));
+                }
             }
         }
-    }
-    $penyakit = array_search(max($rule2),$rule2);
-    switch ($penyakit) {
-        case 1:
-            $nama_penyakit = "TUBERCULOSIS";
-            break;
-        case 2:
-            $nama_penyakit = "COVID- 19";
-            break;
-        case 3:
-            $nama_penyakit = "DIFTERI";
-            break;
-        case 4:
-            $nama_penyakit = "PNEUMONIA";
-            break;
-    }
+        $penyakit = array_search(max($rule2), $rule2);
+        switch ($penyakit) {
+            case 1:
+                $nama_penyakit = "TUBERCULOSIS";
+                break;
+            case 2:
+                $nama_penyakit = "COVID- 19";
+                break;
+            case 3:
+                $nama_penyakit = "DIFTERI";
+                break;
+            case 4:
+                $nama_penyakit = "PNEUMONIA";
+                break;
+        }
         $kesimpulan['penyakit'] = $nama_penyakit;
         $kesimpulan['persentase'] = max($rule2);
         $this->hasil($kesimpulan);
-}
+    }
 
     private function _hitung()
     {
-        
+
         die;
-        
     }
 
     public function hasil_pdf()
@@ -243,21 +242,43 @@ class Konsultasi extends CI_Controller
 
     public function hasil($kesimpulan)
     {
-        $data['datapasien']=$this->konsultasi_model->getPalingBaru();
-        $data['penyakit']=$kesimpulan['penyakit'];
-        $data['persentase']=$kesimpulan['persentase'];
+        $data['datapasien'] = $this->konsultasi_model->getPalingBaru();
+        $data['penyakit'] = $kesimpulan['penyakit'];
+        $data['persentase'] = $kesimpulan['persentase'];
         $this->db->select('hitung_id_gejala');
         $gej = $this->db->get('tmp_hitung')->result_array();
-        $data['count']=count($gej);
+        $data['count'] = count($gej);
         $s = 1;
-        foreach ($gej as $gej){
-            $data['gejala'][$s]=$this->db->where('id_gejala',$gej['hitung_id_gejala'])->get('tb_gejala')->row();
+        foreach ($gej as $gej) {
+            $data['gejala'][$s] = $this->db->where('id_gejala', $gej['hitung_id_gejala'])->get('tb_gejala')->row();
             $s++;
         }
 
         $this->load->view('frontend/_partials/header');
         $this->load->view('frontend/_partials/topbar');
-        $this->load->view('frontend/deteksi/hasil',$data);
-        $this->load->view('frontend/_partials/footer'); 
+        $this->load->view('frontend/deteksi/hasil', $data);
+        $this->load->view('frontend/_partials/footer');
+    }
+
+
+    # test
+    public function pertanyaan($num)
+    {
+        # code
+        $data['num'] = $num - 1;
+        $data['title'] = "Konsultasi | Expert System ISPA";
+        $data['header'] = "Konsultasi";
+        $data['detail'] = "";
+
+        # model
+        $data['pertanyaan'][] = $this->pertanyaan_model->getAll();
+        $data['pertanyaan'][] = $this->pertanyaan2_model->getAll();
+        $data['pertanyaan'][] = $this->pertanyaan3_model->getAll();
+
+        # view
+        $this->load->view('frontend/_partials/header', $data);
+        $this->load->view('frontend/_partials/topbar', $data);
+        $this->load->view('frontend/deteksi/pertanyaan', $data);
+        $this->load->view('frontend/_partials/footer', $data);
     }
 }

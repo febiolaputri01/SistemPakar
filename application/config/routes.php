@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -57,7 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'backend/auth';
 //penyakit
 $route['penyakit'] = 'backend/penyakit';
-$route['add-penyakit'] ='backend/penyakit/create';
+$route['add-penyakit'] = 'backend/penyakit/create';
 $route['delete-penyakit/(:num)'] = function ($id_penyakit) {
     return 'backend/penyakit/delete' . '/' . $id_penyakit;
 };
@@ -66,7 +66,7 @@ $route['edit-penyakit/(:num)'] = function ($id_penyakit) {
 };
 
 $route['gejala'] = 'backend/gejala';
-$route['add-gejala'] ='backend/gejala/create';
+$route['add-gejala'] = 'backend/gejala/create';
 $route['edit-gejala/(:num)'] = function ($id_gejala) {
     return 'backend/gejala/update' . '/' . $id_gejala;
 };
@@ -81,7 +81,7 @@ $route['delete-cf/(:num)'] = function ($evidence_id) {
 };
 
 $route['data-pertanyaan'] = 'backend/pertanyaan';
-$route['add-pertanyaan'] ='backend/pertanyaan/create';
+$route['add-pertanyaan'] = 'backend/pertanyaan/create';
 
 $route['aturan'] = 'backend/aturan';
 
@@ -109,10 +109,13 @@ $route['truncate-artikel'] = 'backend/artikel/clear';
 $route['konsultasi'] = 'frontend/konsultasi';
 $route['mulai-konsul'] = 'frontend/konsultasi/addKonsultasi';
 $route['konfirmasi'] = 'frontend/konsultasi/konfirmasi';
-$route['pertanyaan'] = 'frontend/konsultasi/konsul1';
-$route['pertanyaan2'] = 'frontend/konsultasi/konsul2';
-$route['pertanyaan3'] = 'frontend/konsultasi/konsul3';
+// $route['pertanyaan'] = 'frontend/konsultasi/konsul1';
+// $route['pertanyaan2'] = 'frontend/konsultasi/konsul2';
+// $route['pertanyaan3'] = 'frontend/konsultasi/konsul3';
 $route['execute'] = 'frontend/konsultasi/act';
 $route['hasil'] = 'frontend/konsultasi/hasil';
 
-
+# tester 
+$route['pertanyaan/(:num)'] = function ($num) {
+    return 'frontend/konsultasi/pertanyaan/' . $num;
+};
