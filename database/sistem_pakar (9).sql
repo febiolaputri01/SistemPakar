@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jul 2022 pada 13.02
+-- Waktu pembuatan: 28 Jul 2022 pada 09.56
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.3.29
 
@@ -240,7 +240,13 @@ INSERT INTO `tb_deteksi_pasien` (`id_deteksi_pasien`, `nama_pasien`, `usia`, `no
 (85, 'febi', 23, '0812347876123', 'sahawan', 'perempuan', 0, '2022-07-19 03:09:17'),
 (86, 'nana', 23, '0831081484284', 'jhurutru', 'perempuan', 0, '2022-07-20 11:18:16'),
 (87, 'luli', 25, '081234568798', 'sawahan', 'perempuan', 0, '2022-07-22 03:36:04'),
-(88, 'njhjh', 464747474, '577686868', 'nfgndtkyjtiuje', 'perempuan', 0, '2022-07-22 06:34:26');
+(88, 'njhjh', 464747474, '577686868', 'nfgndtkyjtiuje', 'perempuan', 0, '2022-07-22 06:34:26'),
+(89, 'lul', 23, '0997989', 'sawahan', 'perempuan', 0, '2022-07-23 05:41:18'),
+(90, 'lol', 21, '081234987890', 'jl menco', 'perempuan', 0, '2022-07-23 07:53:11'),
+(91, 'lol', 21, '081234987890', 'jl menco', 'perempuan', 0, '2022-07-23 07:53:12'),
+(92, 'gfyufg', 3, '5353636363633', 'fdhgchfhdth', 'perempuan', 0, '2022-07-23 08:21:17'),
+(93, 'Ananda Prasasti', 43, '081234559858', 'jalan  krakatau kecamatan genteng', 'perempuan', 0, '2022-07-26 17:19:45'),
+(94, 'Anisa budil', 20, '081234879098', 'sawahan', 'perempuan', 0, '2022-07-27 11:22:03');
 
 -- --------------------------------------------------------
 
@@ -1508,22 +1514,26 @@ INSERT INTO `tb_pertanyaan` (`id_pertanyaan`, `id_gejala_pertanyaan`, `id_pertan
 --
 
 CREATE TABLE `tb_pertanyaan2` (
-  `id_pertanyaan2` int(11) NOT NULL,
-  `id_pertanyaan_grup2` int(11) NOT NULL,
+  `id_pertanyaan` int(11) NOT NULL,
+  `id_pertanyaan_grup` int(11) NOT NULL,
   `pertanyaan` varchar(100) NOT NULL,
-  `jawaban1_pertanyaan2` int(11) NOT NULL,
-  `jawaban2_pertanyaan2` int(11) NOT NULL,
-  `jawaban3_pertanyaan2` int(11) NOT NULL,
-  `jawaban4_pertanyaan2` int(11) NOT NULL
+  `jawaban_1` int(11) NOT NULL,
+  `jawaban_2` int(11) NOT NULL,
+  `jawaban_3` int(11) NOT NULL,
+  `jawaban_4` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_pertanyaan2`
 --
 
-INSERT INTO `tb_pertanyaan2` (`id_pertanyaan2`, `id_pertanyaan_grup2`, `pertanyaan`, `jawaban1_pertanyaan2`, `jawaban2_pertanyaan2`, `jawaban3_pertanyaan2`, `jawaban4_pertanyaan2`) VALUES
-(1, 1, 'Berapa frekuensi batuk yang anda alami ?', 15, 16, 17, 42),
-(2, 1, 'Jenis batuk apa yang anda alami?', 18, 19, 20, 42);
+INSERT INTO `tb_pertanyaan2` (`id_pertanyaan`, `id_pertanyaan_grup`, `pertanyaan`, `jawaban_1`, `jawaban_2`, `jawaban_3`, `jawaban_4`) VALUES
+(1, 6, 'Berapa frekuensi batuk yang anda alami ?', 15, 16, 17, 42),
+(2, 6, 'Jenis batuk apa yang anda alami?', 18, 19, 20, 42),
+(3, 6, 'Apa warna dahak ketika anda mengalami batuk?', 21, 22, 23, 42),
+(4, 6, 'Berapa lama anda mengalami gejala batuk?', 24, 25, 26, 42),
+(5, 7, 'Berapa suhu ketika anda mengalami gejala demam ?', 27, 28, 29, 42),
+(6, 7, 'Berapa lama anda mengalami demam ?', 30, 31, 32, 42);
 
 -- --------------------------------------------------------
 
@@ -1532,22 +1542,30 @@ INSERT INTO `tb_pertanyaan2` (`id_pertanyaan2`, `id_pertanyaan_grup2`, `pertanya
 --
 
 CREATE TABLE `tb_pertanyaan3` (
-  `id_pertanyaan3` int(11) NOT NULL,
-  `id_gejala_pertanyaan3` int(11) NOT NULL,
+  `id_pertanyaan` int(11) NOT NULL,
+  `id_gejala_pertanyaan` int(11) NOT NULL,
   `id_pertanyaan_grup` int(11) NOT NULL,
   `pertanyaan` varchar(255) NOT NULL,
-  `jawaban_1_pertanyaan_3` varchar(50) NOT NULL,
-  `jawaban_2_pertanyaan3` varchar(50) NOT NULL,
-  `jawaban_3_pertanyaan3` varchar(50) NOT NULL,
-  `jawaban_4_pertanyaan3` varchar(50) NOT NULL
+  `jawaban_1` varchar(50) NOT NULL,
+  `jawaban_2` varchar(50) NOT NULL,
+  `jawaban_3` varchar(50) NOT NULL,
+  `jawaban_4` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_pertanyaan3`
 --
 
-INSERT INTO `tb_pertanyaan3` (`id_pertanyaan3`, `id_gejala_pertanyaan3`, `id_pertanyaan_grup`, `pertanyaan`, `jawaban_1_pertanyaan_3`, `jawaban_2_pertanyaan3`, `jawaban_3_pertanyaan3`, `jawaban_4_pertanyaan3`) VALUES
-(1, 21, 5, 'fghdhtdgh?', 'hfhf', 'dgdg', 'hfdhd', 'gdgfg');
+INSERT INTO `tb_pertanyaan3` (`id_pertanyaan`, `id_gejala_pertanyaan`, `id_pertanyaan_grup`, `pertanyaan`, `jawaban_1`, `jawaban_2`, `jawaban_3`, `jawaban_4`) VALUES
+(1, 33, 7, 'Apakah anda mengalami nyeri dada?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(2, 34, 7, 'Apakah anda mengalami sesak nafas ?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(3, 35, 7, 'Apakah saat anda bernafas terdengar suara lain(grok grok)?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(4, 36, 7, 'Berapa jumlah denyut jantung anda dalam satu menit ?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(5, 37, 8, 'Jika anda membuka mulut, apakah anda melihat ada bercak putih atau keabuan pada tonsil (daerah amandel)?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(6, 38, 8, 'Jika anda meraba bagian belakang leher anda, apakah ada benjolannya ?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(7, 39, 8, 'Apakah anda memiliki riwayat penyakit HIV?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(8, 40, 8, 'Apakah anda mempunyai riwayat penyakit penyakit bawaan seperti (diabetes, jantung, darah tinggi, asma, ginjal, kanker) ', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin'),
+(9, 41, 8, 'Apakah anda pernah kontak langsung dengan salah satu pasien dengan diagnosis TBC / Covid-19/ Difteri atau Pneumonia pada waktu kurang dari 1 minggu yang lalu?', 'Sangat yakin', 'Yakin', 'Kurang Yakin', 'Tidak Yakin');
 
 -- --------------------------------------------------------
 
@@ -1690,13 +1708,13 @@ ALTER TABLE `tb_pertanyaan`
 -- Indeks untuk tabel `tb_pertanyaan2`
 --
 ALTER TABLE `tb_pertanyaan2`
-  ADD PRIMARY KEY (`id_pertanyaan2`);
+  ADD PRIMARY KEY (`id_pertanyaan`);
 
 --
 -- Indeks untuk tabel `tb_pertanyaan3`
 --
 ALTER TABLE `tb_pertanyaan3`
-  ADD PRIMARY KEY (`id_pertanyaan3`);
+  ADD PRIMARY KEY (`id_pertanyaan`);
 
 --
 -- Indeks untuk tabel `tb_pertanyaan_grub_2`
@@ -1742,7 +1760,7 @@ ALTER TABLE `tb_artikel`
 -- AUTO_INCREMENT untuk tabel `tb_deteksi_pasien`
 --
 ALTER TABLE `tb_deteksi_pasien`
-  MODIFY `id_deteksi_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id_deteksi_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_evidence`
@@ -1784,13 +1802,13 @@ ALTER TABLE `tb_pertanyaan`
 -- AUTO_INCREMENT untuk tabel `tb_pertanyaan2`
 --
 ALTER TABLE `tb_pertanyaan2`
-  MODIFY `id_pertanyaan2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pertanyaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pertanyaan3`
 --
 ALTER TABLE `tb_pertanyaan3`
-  MODIFY `id_pertanyaan3` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pertanyaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pertanyaan_grub_2`

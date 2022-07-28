@@ -77,7 +77,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
         </div>
         <div class="text-center">
-        <button type="button" class="btn btn-info"><a href="<?= base_url('pertanyaan') ?>" style=" color: white;">Mulai Konsultasi</a></button>
+        <button type="button" class="btn btn-info"><a href="<?= base_url('pertanyaan/1') ?>" style=" color: white;">Mulai Konsultasi</a></button>
         </div>
       </div>
     </div>

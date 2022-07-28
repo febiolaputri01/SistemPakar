@@ -164,101 +164,103 @@ class Konsultasi extends CI_Controller
         $this->load->view('frontend/_partials/footer', $data);
     }
 
-    public function act()
-    {
-        $this->db->truncate('tmp_hitung');
-        for ($i = 1; $i <= $_POST['jumlah']; $i++) {
-            $data = [
-                'hitung_id_gejala' => $_POST['idgejala' . ($i)],
-                'hitung_id_pertanyaan' => $_POST['pertanyaan' . ($i)],
-                'hitung_nilai' => $_POST['idtanya' . ($i)]
-            ];
-            $this->db->insert('tmp_hitung', $data);
-
-            $evidence[$i] = $this->db->get_where('tb_evidence', ['evidence_gejala_id' => $_POST['idgejala' . ($i)]])->result_array();
-            $n = 1;
-            foreach ($evidence[$i] as $nilai) {
-                $rule1[$i][$n] = $nilai['evidence_nilai'] * $_POST['idtanya' . ($i)];
-                $n++;
-            }
-        };
-
-        $total = $this->random_model->countPertanyaan();
-        for ($a = 1; $a <= 4; $a++) {
-            for ($b = 1; $b <= $total; $b++) {
-                if (isset($rule1[$b][$a]) and isset($rule1[$b + 1][$a])) {
-                    $rule2[$a] = $rule1[$b][$a] + ($rule1[$b + 1][$a] * (1 - $rule1[$b][$a]));
-                }
-            }
-        }
-        $penyakit = array_search(max($rule2), $rule2);
-        switch ($penyakit) {
-            case 1:
-                $nama_penyakit = "TUBERCULOSIS";
-                break;
-            case 2:
-                $nama_penyakit = "COVID- 19";
-                break;
-            case 3:
-                $nama_penyakit = "DIFTERI";
-                break;
-            case 4:
-                $nama_penyakit = "PNEUMONIA";
-                break;
-        }
-        $kesimpulan['penyakit'] = $nama_penyakit;
-        $kesimpulan['persentase'] = max($rule2);
-        $this->hasil($kesimpulan);
-    }
-
-    private function _hitung()
-    {
-
-        die;
-    }
-
-    public function hasil_pdf()
-    {
-        $konsul = $this->konsultasi_model->getPalingBaru();
-        $konsul_id = $konsul['konsultasi_id'];
-        $mana = array('hasilkonsultasi_konsultasi_id' => $konsul_id);
-        $maximum = $this->hitung_model->getMax($mana);
-        $query = $this->hamapenyakit_model->getId($maximum['hasilkonsultasi_konsultasi_hasil_hp']);
-        $solusi = $this->solusi_model->getId($maximum['hasilkonsultasi_konsultasi_hasil_hp']);
-
-        $data['whosconsult'] = $this->konsultasi_model->getNewest();
-        $data['max'] = $maximum['hasilkonsultasi_prosentase'];
-        $data['hamapenyakit'] = $query;
-        $data['solusi'] = $solusi;
-        $data['pilihanuser'] = $this->hitung_model->getGejala();
-
-        $this->load->library('pdf'); //load library PDF
-
-        $this->pdf->setPaper('A4', 'landscape'); //set ukuran kertas
-        $this->pdf->filename = "hasil-konsultasi.pdf"; //set nama
-        $this->pdf->load_view('frontend/konsultasi/cetak', $data);
-    }
 
 
-    public function hasil($kesimpulan)
-    {
-        $data['datapasien'] = $this->konsultasi_model->getPalingBaru();
-        $data['penyakit'] = $kesimpulan['penyakit'];
-        $data['persentase'] = $kesimpulan['persentase'];
-        $this->db->select('hitung_id_gejala');
-        $gej = $this->db->get('tmp_hitung')->result_array();
-        $data['count'] = count($gej);
-        $s = 1;
-        foreach ($gej as $gej) {
-            $data['gejala'][$s] = $this->db->where('id_gejala', $gej['hitung_id_gejala'])->get('tb_gejala')->row();
-            $s++;
-        }
+    // public function act()
+    // {
+    //     $this->db->truncate('tmp_hitung');
+    //     for ($i = 1; $i <= $_POST['jumlah']; $i++) {
+    //         $data = [
+    //             'hitung_id_gejala' => $_POST['idgejala' . ($i)],
+    //             'hitung_id_pertanyaan' => $_POST['pertanyaan' . ($i)],
+    //             'hitung_nilai' => $_POST['idtanya' . ($i)]
+    //         ];
+    //         $this->db->insert('tmp_hitung', $data);
 
-        $this->load->view('frontend/_partials/header');
-        $this->load->view('frontend/_partials/topbar');
-        $this->load->view('frontend/deteksi/hasil', $data);
-        $this->load->view('frontend/_partials/footer');
-    }
+    //         $evidence[$i] = $this->db->get_where('tb_evidence', ['evidence_gejala_id' => $_POST['idgejala' . ($i)]])->result_array();
+    //         $n = 1;
+    //         foreach ($evidence[$i] as $nilai) {
+    //             $rule1[$i][$n] = $nilai['evidence_nilai'] * $_POST['idtanya' . ($i)];
+    //             $n++;
+    //         }
+    //     };
+
+    //     $total = $this->random_model->countPertanyaan();
+    //     for ($a = 1; $a <= 4; $a++) {
+    //         for ($b = 1; $b <= $total; $b++) {
+    //             if (isset($rule1[$b][$a]) and isset($rule1[$b + 1][$a])) {
+    //                 $rule2[$a] = $rule1[$b][$a] + ($rule1[$b + 1][$a] * (1 - $rule1[$b][$a]));
+    //             }
+    //         }
+    //     }
+    //     $penyakit = array_search(max($rule2), $rule2);
+    //     switch ($penyakit) {
+    //         case 1:
+    //             $nama_penyakit = "TUBERCULOSIS";
+    //             break;
+    //         case 2:
+    //             $nama_penyakit = "COVID- 19";
+    //             break;
+    //         case 3:
+    //             $nama_penyakit = "DIFTERI";
+    //             break;
+    //         case 4:
+    //             $nama_penyakit = "PNEUMONIA";
+    //             break;
+    //     }
+    //     $kesimpulan['penyakit'] = $nama_penyakit;
+    //     $kesimpulan['persentase'] = max($rule2);
+    //     $this->hasil($kesimpulan);
+    // }
+
+    // private function _hitung()
+    // {
+
+    //     die;
+    // }
+
+    // public function hasil_pdf()
+    // {
+    //     $konsul = $this->konsultasi_model->getPalingBaru();
+    //     $konsul_id = $konsul['konsultasi_id'];
+    //     $mana = array('hasilkonsultasi_konsultasi_id' => $konsul_id);
+    //     $maximum = $this->hitung_model->getMax($mana);
+    //     $query = $this->hamapenyakit_model->getId($maximum['hasilkonsultasi_konsultasi_hasil_hp']);
+    //     $solusi = $this->solusi_model->getId($maximum['hasilkonsultasi_konsultasi_hasil_hp']);
+
+    //     $data['whosconsult'] = $this->konsultasi_model->getNewest();
+    //     $data['max'] = $maximum['hasilkonsultasi_prosentase'];
+    //     $data['hamapenyakit'] = $query;
+    //     $data['solusi'] = $solusi;
+    //     $data['pilihanuser'] = $this->hitung_model->getGejala();
+
+    //     $this->load->library('pdf'); //load library PDF
+
+    //     $this->pdf->setPaper('A4', 'landscape'); //set ukuran kertas
+    //     $this->pdf->filename = "hasil-konsultasi.pdf"; //set nama
+    //     $this->pdf->load_view('frontend/konsultasi/cetak', $data);
+    // }
+
+
+    // public function hasil($kesimpulan)
+    // {
+    //     $data['datapasien'] = $this->konsultasi_model->getPalingBaru();
+    //     $data['penyakit'] = $kesimpulan['penyakit'];
+    //     $data['persentase'] = $kesimpulan['persentase'];
+    //     $this->db->select('hitung_id_gejala');
+    //     $gej = $this->db->get('tmp_hitung')->result_array();
+    //     $data['count'] = count($gej);
+    //     $s = 1;
+    //     foreach ($gej as $gej) {
+    //         $data['gejala'][$s] = $this->db->where('id_gejala', $gej['hitung_id_gejala'])->get('tb_gejala')->row();
+    //         $s++;
+    //     }
+
+    //     $this->load->view('frontend/_partials/header');
+    //     $this->load->view('frontend/_partials/topbar');
+    //     $this->load->view('frontend/deteksi/hasil', $data);
+    //     $this->load->view('frontend/_partials/footer');
+    // }
 
 
     # test
@@ -280,5 +282,117 @@ class Konsultasi extends CI_Controller
         $this->load->view('frontend/_partials/topbar', $data);
         $this->load->view('frontend/deteksi/pertanyaan', $data);
         $this->load->view('frontend/_partials/footer', $data);
+    }
+
+    #hasil
+
+    public function hasil()
+    {
+
+         /*
+        | ------------------------------------------------------------------------
+        |  PROSES PENGAMBILAN DATA 
+        | ------------------------------------------------------------------------
+        |*/
+        $counter = 29; # hitung jumlah berapa gejala yang dipilih (digunakan untuk looping)
+        $input_tanggal = date('Y-m-d H:i:s');
+        $arbobot = array('1.0', '0.8', '0.4', '0'); #nilai bobot dari kondisi yang dipilih user
+
+        // Ambil gejala dan kondisi yang dipilih user
+        for ($i = 0; $i < $counter; $i++) {
+        $kondisi = explode("_", $_POST['jawaban'][$i]); //untuk memecah string setiap tanda petik
+            if (strlen($_POST['jawaban'][$i]) > 1) { // strlen = untuk menghitung jumlah string atau karakter
+                $argejala []= $jawaban[0]; // array gejala di pilih user
+                $arkondisi [] = $jawabani[1]; // array kondisi yang dipilih user
+            }
+        }
+
+
+         /*
+        | ------------------------------------------------------------------------
+        |  PERHITUNGAN NILAI CF
+        | ------------------------------------------------------------------------
+        |*/   
+
+        $sql_penyakit = $this->db->query("SELECT * FROM tb_penyakit order by id_penyakit ASC");
+        $array_penyakit = array();
+        foreach ($sql_penyakit->result_array() as $key) {
+            $cftotal_temp = 0;
+            $cf = 0;
+            
+            $cflama = 0;
+            
+            $query_gejala = $this->db->select('*')->where('id_hp', $key['id_hp'])->get('pengetahuan');
+            
+            foreach ($query_gejala->result_array() as $key => $value) { // foreach = perulangan data yang sudah ada pada tabel database
+            
+                
+                for ($i = 0; $i < $counter; $i++) { //for = perulangan data yang belum ada pada tabel seperti hasil perkalian,dsb.
+                    $array_kondisi = explode("_", $_POST['kondisi'][$i]); //untuk memecah string setiap tanda petik
+                    $gejala = $array_kondisi[0];
+                    if ($value['id_gejala'] == $gejala) {
+                        $cf = $value['cf_pakar'] * $arbobot[$array_kondisi[1]];
+                        
+                        // Rumus Cf Combine
+                        if (($cf >= 0) && ($cf * $cflama >= 0)) {
+                            $cflama = $cflama + ($cf * (1 - $cflama));
+                        }
+                    }
+                }
+            }
+            if ($cflama > 0) {
+                # hasil dari semua perhitungan cf dalam bentuk array
+                $array_penyakit += array($value['id_hp'] => number_format($cflama, 4));  
+            } 
+            
+        }
+
+            arsort($array_penyakit); # urutkan hasil perhitungan per penyakit dari nilai yang tertinggi sampai terendah
+            $input_gejala = serialize($argejala); # ubah array menjadi varchar agar bisa disimpan di database
+            $input_penyakit = serialize($array_penyakit); # ubah array menjadi varchar agar bisa disimpan di database
+
+            $np1 = 0;
+            foreach ($array_penyakit as $key1 => $value1) {
+                $np1++;
+                $penyakit_1[$np1] = $key1;
+                $nilai[$np1] = $value1;
+                
+            }
+
+        /*
+        | ------------------------------------------------------------------------
+        |  INSERT DATA HASIL PERHITUNGAN KE DATABASE
+        | ------------------------------------------------------------------------
+        |*/
+            $data_hasil = [
+                'id_user' =>$this->session->userdata('id_user'),
+                'hp' =>$input_penyakit,
+                'gejala' =>$input_gejala,
+                'tanggal' =>$input_tanggal,
+                'id_hp' =>$penyakit_1[1],
+                'cf_hasil' =>$nilai[1],
+            ];
+            $this->db->insert('hasil', $data_hasil);
+            
+
+        /*
+        | ------------------------------------------------------------------------
+        |  PARSING DATA KE HALAMAN VIEW
+        | ------------------------------------------------------------------------
+        |*/
+        $data['hasil'] = round($nilai[1], 3);
+        $data['persentasi'] = round($nilai[1]*100); 
+        $data['penyakit'] = $array_penyakit;
+        $data['penyakit_lain'] = $array_penyakit;
+        $data['kondisi'] = $arkondisi;
+        $data['penyakit_terpilih'] = $penyakit_1[1];
+        $data['gejala'] = $argejala;
+        $data['title'] = 'Hasil Diagnosa';
+        
+        
+        $this->load->view('frontend/_partials/header');
+        $this->load->view('frontend/_partials/topbar');
+        $this->load->view('frontend/deteksi/hasil', $data);
+        $this->load->view('frontend/_partials/footer');
     }
 }

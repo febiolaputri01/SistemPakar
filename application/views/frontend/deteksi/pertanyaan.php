@@ -18,9 +18,9 @@
                 <h2 class="wizard-title">
                   Deteksi Dini Penyakit Infeksi Saluran Pernafasan Akut
                 </h2>
-                <h3 style=" font: bold; color:  red ;">
-                  Perhatikan pertanyaan dibawah dengan teliti, jawablah pertanyaan dibawah dengan benar sesuai dengan gejala yang anda alami.
-                </h3>
+                <h4 style=" font: bold; color:  navy   ;">
+                 <b> Perhatikan pertanyaan dibawah dengan teliti, jawablah pertanyaan dibawah dengan benar sesuai dengan tingkat keyakinan yang anda alami. </b>
+                </h4>
               </div>
 
               <?php $arr_devide = array_chunk($pertanyaan[$num], 4); ?>
@@ -42,13 +42,13 @@
                   <?php foreach ($devide as $k => $data) { ?>
                   <div class="row">
                     <div class="col-sm-12">
-                      <h3 class="text pertanyaan_class_all"><?= $data['pertanyaan'] ?></h3>
+                      <h3 class="text pertanyaan_class_all"> <b>  <?= $data['pertanyaan'] ?> </b></h3>
                     </div>
                     <div class="radio" style="color: black;">
                       <?php if (isset($data['id_pertanyaan'])) { ?>
                       <?php for ($i = 1; $i <= 4; $i++) { ?>
                       <label class="col-sm-12">
-                        <input type="radio" name="jawaban[<?= $data['id_pertanyaan'] ?>]" value="1">
+                        <input type="radio" name="jawaban[<?= $data['id_pertanyaan'] ?>]" value="">
                         <b style="color: black; font-size: large;"><?= $data['jawaban_' . (string) $i] ?></b>
                       </label>
                       <?php } ?>
@@ -64,7 +64,7 @@
 
                 <div class="pull-right">
                   <button type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next'>Selanjutnya</button>
-                  <?php if ($num >= 0 && $num <= 3) { ?>
+                  <?php if ($num >= 0 && $num < 2) { ?>
                   <button type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish'>Selanjutnya</button>
                   <?php } ?>
                 </div>

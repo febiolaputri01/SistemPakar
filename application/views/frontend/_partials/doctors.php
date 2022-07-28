@@ -14,7 +14,7 @@
           <div class="col-lg-3 col-md-5 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="300">
               <div class="member-img" style="height: 261px;">
-                <img src="<?= base_url('assets/template/') ?>img/doctors/loli.jpg" class="img-fluid" alt="">
+                <img src="<?= base_url('assets/template/') ?>img/doctors/lola.jpeg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -32,7 +32,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="300">
               <div class="member-img" style="height: 261px;">
-                <img src="<?= base_url('assets/template/') ?>img/doctors/drangga.png" class="img-fluid" alt="">
+                <img src="<?= base_url('assets/template/') ?>img/doctors/dokter.png" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>

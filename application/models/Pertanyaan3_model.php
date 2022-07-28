@@ -14,13 +14,13 @@ class Pertanyaan3_model extends CI_Model {
       public function getAll()
     {
         $this->db->select(
-            'a.id_pertanyaan3, a.id_gejala_pertanyaan3, a.id_pertanyaan_grup, a.pertanyaan, a.jawaban_1_pertanyaan_3,  a.jawaban_2_pertanyaan3,  a.jawaban_3_pertanyaan3,  a.jawaban_4_pertanyaan3,
+            'a.id_pertanyaan, a.id_gejala_pertanyaan, a.id_pertanyaan_grup, a.pertanyaan, a.jawaban_1,  a.jawaban_2,  a.jawaban_3,  a.jawaban_4,
             b.id_gejala, b.nama_gejala, b.image_gejala, c.id_pertanyaan_grup, c.nama_pertanyaan_grup'
         );
         $this->db->from('tb_pertanyaan3 a');
-        $this->db->join('tb_gejala b', 'a.id_gejala_pertanyaan3 = b.id_gejala');
+        $this->db->join('tb_gejala b', 'a.id_gejala_pertanyaan = b.id_gejala');
         $this->db->join('pertanyaan_grup c', 'a.id_pertanyaan_grup = c.id_pertanyaan_grup');
-        $this->db->group_by('a.id_pertanyaan3');
+        $this->db->group_by('a.id_pertanyaan');
         return $this->db->get($this->_table)->result_array();
     }
     //  public function getgrup()
