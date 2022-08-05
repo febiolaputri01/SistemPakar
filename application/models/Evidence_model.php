@@ -62,4 +62,9 @@ class Evidence_model extends CI_Model
     {
         return $this->db->get_where($this->_table, $gjid)->row_array();
     }
+
+    public function getByIdGejala($gjid)
+    {
+        return $this->db->get_where($this->_table, ['evidence_gejala_id' => $gjid])->row_array();
+    }
 }

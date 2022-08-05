@@ -114,8 +114,15 @@ $route['konfirmasi'] = 'frontend/konsultasi/konfirmasi';
 // $route['pertanyaan3'] = 'frontend/konsultasi/konsul3';
 $route['execute'] = 'frontend/konsultasi/act';
 $route['hasil'] = 'frontend/konsultasi/hasil';
+$route['evidencegejala'] = 'frontend/konsultasi/evidencegejala';
 
 # tester 
 $route['pertanyaan/(:num)'] = function ($num) {
     return 'frontend/konsultasi/pertanyaan/' . $num;
 };
+
+$route['simpan_jawaban'] = 'frontend/konsultasi/simpan_jawaban';
+$route['ambil_jawaban'] = 'frontend/konsultasi/ambil_jawaban';
+// $route['evidencegejala/(:num)'] = function ($num) {
+//     return 'frontend/konsultasi/evidencegejala/' . $num;
+// };
